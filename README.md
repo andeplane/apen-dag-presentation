@@ -23,4 +23,4 @@ in this directory
 
 
 ANDROMEDA IMAGES:
-Download the high resolution images from here: https://dl.dropboxusercontent.com/u/9786132/andromeda.zip Unzip images into source folder (relative path from executable needs to be ../andromeda-viewer/*.jpg)
+Download the high resolution images from here: https://dl.dropboxusercontent.com/u/9786132/andromeda.zip Unzip images into source folder (relative path from executable needs to be ../apen-dag-presentation/*.jpg)
