@@ -6,5 +6,6 @@
         <file>figures/densityCH5_2.png</file>
         <file>figures/ions.png</file>
         <file>figures/md.png</file>
+        <file>modules/flocking-algorithm/bird.png</file>
     </qresource>
 </RCC>

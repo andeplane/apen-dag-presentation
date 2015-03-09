@@ -5,21 +5,25 @@ CONFIG += c++11
 
 SOURCES += main.cpp \
     latexrunner/latexrunner.cpp \
-    modules/andromeda-viewer/renderer.cpp \
-    modules/andromeda-viewer/controller.cpp \
-    modules/andromeda-viewer/billboards.cpp \
-    modules/andromeda-viewer/simulator.cpp \
-    modules/andromeda-viewer/points.cpp \
-    modules/andromeda-viewer/random.cpp
+    modules/andromeda-viewer/and_billboards.cpp \
+    modules/andromeda-viewer/and_controller.cpp \
+    modules/andromeda-viewer/and_renderer.cpp \
+    modules/andromeda-viewer/and_simulator.cpp \
+    modules/flocking-algorithm/flock_billboards.cpp \
+    modules/flocking-algorithm/flock_controller.cpp \
+    modules/flocking-algorithm/flock_renderer.cpp \
+    modules/flocking-algorithm/flock_simulator.cpp
 
 HEADERS += \
     latexrunner/latexrunner.h \
-    modules/andromeda-viewer/controller.h \
-    modules/andromeda-viewer/renderer.h \
-    modules/andromeda-viewer/billboards.h \
-    modules/andromeda-viewer/simulator.h \
-    modules/andromeda-viewer/points.h \
-    modules/andromeda-viewer/random.h
+    modules/andromeda-viewer/and_billboards.h \
+    modules/andromeda-viewer/and_controller.h \
+    modules/andromeda-viewer/and_renderer.h \
+    modules/andromeda-viewer/and_simulator.h \
+    modules/flocking-algorithm/flock_billboards.h \
+    modules/flocking-algorithm/flock_controller.h \
+    modules/flocking-algorithm/flock_renderer.h \
+    modules/flocking-algorithm/flock_simulator.h
 
 RESOURCES += \
     images.qrc \

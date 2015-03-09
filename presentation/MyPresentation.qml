@@ -5,6 +5,7 @@ import QtQuick.Controls 1.1
 import QtMultimedia 5.0
 import QtGraphicalEffects 1.0
 import "../modules/andromeda-viewer"
+import "../modules/flocking-algorithm"
 import "../qml"
 
 TransitionPresentation
@@ -42,6 +43,15 @@ TransitionPresentation
         id: secondSlide
 
         AndromedaViewer {
+            width: 1080
+            height: 1080
+        }
+    }
+
+    Slide {
+        id: thirdSlide
+
+        Flocking {
             width: 1080
             height: 1080
         }
