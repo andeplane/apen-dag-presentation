@@ -20,3 +20,7 @@ Edit it to suit your needs.
 Build and run the project from Qt Creator or create a new folder next to the root directory (where latexpresentation.pro is) and run 
 `qmake ../latex-presentation/latexpresentation.pro && make && ./latexpresentation`
 in this directory
+
+
+ANDROMEDA IMAGES:
+Download the high resolution images from here: https://dl.dropboxusercontent.com/u/9786132/andromeda.zip Unzip images into source folder (relative path from executable needs to be ../andromeda-viewer/*.jpg)
