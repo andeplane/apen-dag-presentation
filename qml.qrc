@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/BorderedImage.qml</file>
+        <file>qml/DefaultImage.qml</file>
+        <file>qml/Heading.qml</file>
+        <file>qml/Latex.qml</file>
+        <file>qml/LowerLeftSlide.qml</file>
+        <file>qml/LowerRightSlide.qml</file>
+        <file>qml/MultiSlide.qml</file>
+        <file>qml/Presentation.qml</file>
+        <file>qml/Slide.qml</file>
+        <file>qml/TransitionPresentation.qml</file>
+        <file>qml/UpperLeftSlide.qml</file>
+        <file>qml/UpperRightSlide.qml</file>
+        <file>modules/andromeda-viewer/AndromedaViewer.qml</file>
+    </qresource>
+</RCC>

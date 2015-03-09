@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>figures/benzene.png</file>
+        <file>figures/boron.png</file>
+        <file>figures/densityCH5.png</file>
+        <file>figures/densityCH5_2.png</file>
+        <file>figures/ions.png</file>
+        <file>figures/md.png</file>
+    </qresource>
+</RCC>

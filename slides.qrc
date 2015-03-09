@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/latexpresentation/BorderedImage.qml</file>
+        <file>qml/latexpresentation/DefaultImage.qml</file>
+        <file>qml/latexpresentation/Heading.qml</file>
+        <file>qml/latexpresentation/Latex.qml</file>
+        <file>qml/latexpresentation/LowerLeftSlide.qml</file>
+        <file>qml/latexpresentation/LowerRightSlide.qml</file>
+        <file>qml/latexpresentation/main.qml</file>
+        <file>qml/latexpresentation/MultiSlide.qml</file>
+        <file>qml/latexpresentation/MyPresentation.qml</file>
+        <file>qml/latexpresentation/Presentation.qml</file>
+        <file>qml/latexpresentation/Slide.qml</file>
+        <file>qml/latexpresentation/TransitionPresentation.qml</file>
+        <file>qml/latexpresentation/UpperLeftSlide.qml</file>
+        <file>qml/latexpresentation/UpperRightSlide.qml</file>
+    </qresource>
+</RCC>
