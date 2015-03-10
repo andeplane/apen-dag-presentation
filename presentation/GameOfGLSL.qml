@@ -2,16 +2,124 @@ import QtQuick 2.0
 
 Rectangle {
     id: gameRoot
+    property bool isCurrent: false
     property bool running: false
+    property int rowCount: 150
+    property int columnCount: 150
 
     width: 100
     height: 62
     focus: true
 
+    color: "black"
+
+    function clear() {
+        stepTimer.clearTime = Date.now()
+        canvas.cells = [[]]
+        for(var i = 0; i < rowCount; i++) {
+            canvas.cells[i] = []
+            for(var j = 0; j < columnCount; j++) {
+                canvas.cells[i][j] = 0
+            }
+        }
+        canvas.requestPaint()
+    }
+
+    function patternCount(pattern) {
+        var row = 0
+        var col = 0
+        var maxCol = 0
+        for(var i in pattern) {
+            var character = pattern[i]
+            col += 1
+            if(character === "\n") {
+                maxCol = Math.max(col, maxCol)
+                col = 0
+                row += 1
+            }
+        }
+        return [row, maxCol]
+    }
+
+    function loadPattern(pattern) {
+        effectSource.sourceItem = rect
+        var patternRowColumnCount = patternCount(pattern)
+        var patternRowCount = patternRowColumnCount[0]
+        var patternColumnCount = patternRowColumnCount[1]
+        var rowOffset = parseInt((rowCount - patternRowCount) / 2)
+        var columnOffset = parseInt((columnCount - patternColumnCount) / 2)
+        clear()
+        var row = rowOffset
+        var column = columnOffset
+        for(var i in pattern) {
+            var character = pattern[i]
+            if(character === "*") {
+                canvas.cells[row][column] = 1
+            }
+
+            column += 1
+            if(character === "\n") {
+                column = columnOffset
+                row += 1
+            }
+        }
+        canvas.requestPaint()
+    }
+
+    Component.onCompleted: {
+        var pattern = "***"
+        loadPattern(pattern)
+    }
+
     Rectangle {
         id: rect
-        anchors.fill: parent
+
         color: "black"
+
+        width: columnCount
+        height: rowCount
+
+        Canvas {
+            id: canvas
+            property string pattern
+            property var cells: [[]]
+
+            anchors.centerIn: parent
+
+            transformOrigin: Item.Center
+
+            smooth: false
+            antialiasing: false
+
+            width: columnCount
+            height: rowCount
+            onPaint: {
+                var ctx = canvas.getContext("2d")
+                ctx.save();
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                var imageData = ctx.createImageData(rowCount, columnCount)
+
+                var data = imageData.data
+
+                for(var i = 0; i < rowCount; i++) {
+                    for(var j = 0; j < columnCount; j++) {
+                        var index = i*columnCount*4 + j*4
+                        var value = 0
+                        if(cells[i][j] > 0) {
+                            value = 255
+                        }
+
+                        data[index + 0] = value
+                        data[index + 1] = value
+                        data[index + 2] = value
+                        data[index + 3] = 255
+                    }
+                }
+                ctx.drawImage(imageData, 0, 0)
+
+                ctx.restore();
+            }
+        }
     }
 
     Column {
@@ -34,10 +142,15 @@ Rectangle {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    stepTimer.clearTime = Date.now()
+                    clear()
                 }
             }
         }
+
+        GamePatterns {
+            onLoadPattern: gameRoot.loadPattern(pattern)
+        }
+
     }
 
     ShaderEffectSource {
@@ -47,22 +160,24 @@ Rectangle {
         live: false
         smooth: false
         antialiasing: false
+        hideSource: true
     }
 
     ShaderEffect {
         id: effect
         property real time: 0
+        property int timeStep: parseInt(time)
         property vector2d resolution: Qt.vector2d(width, height)
         property vector2d mouse: Qt.vector2d(50, 50)
         property var backbuffer: effectSource
         property bool autoDraw: false
-        property bool doStep: false
+        property bool doStep: gameRoot.running && !autoDraw && isCurrent
 
         smooth: false
         antialiasing: false
 
-        width: 100
-        height: 100
+        width: columnCount
+        height: rowCount
         vertexShader: "
             uniform highp mat4 qt_Matrix;
             attribute highp vec4 qt_Vertex;
@@ -76,6 +191,7 @@ Rectangle {
         fragmentShader: "
             // adapted from http://glsl.herokuapp.com/e#207.3
             uniform float time;
+            uniform int timeStep;
             uniform vec2 mouse;
             uniform vec2 resolution;
             uniform sampler2D backbuffer;
@@ -160,35 +276,30 @@ Rectangle {
 
         MouseArea {
             anchors.fill: parent
-            hoverEnabled: true
             onPositionChanged: {
                 effect.mouse.x = mouse.x / width
                 effect.mouse.y = mouse.y / height
+                effectSource.scheduleUpdate()
             }
             onPressed: {
+                effect.mouse.x = mouse.x / width
+                effect.mouse.y = mouse.y / height
                 effect.autoDraw = true
             }
             onReleased: {
                 effect.autoDraw = false
             }
+
             onWheel: {
                 if(wheel.angleDelta.y > 0) {
-                    effect.width += 10
-                    effect.height += 10
+                    rowCount += 10
+                    columnCount += 10
                 } else {
-                    effect.width = Math.max(10, effect.width-10)
-                    effect.height = Math.max(10, effect.height - 10)
+                    rowCount = Math.max(10, effect.width-10)
+                    columnCount = Math.max(10, effect.height - 10)
                 }
+                clear()
             }
-        }
-    }
-
-    Keys.onPressed: {
-        if(event.key === Qt.Key_E) {
-            effect.autoDraw = !effect.autoDraw
-        }
-        if(event.key === Qt.Key_Space) {
-            effect.running = !effect.running
         }
     }
 
@@ -197,9 +308,9 @@ Rectangle {
         property real clearTime: Date.now()
         property real stepTime: Date.now()
 
-        running: true
+        running: isCurrent
         repeat: true
-        interval: 1
+        interval: 100
         onTriggered: {
             var currentTime = Date.now()
             effectSource.scheduleUpdate()
@@ -209,13 +320,6 @@ Rectangle {
             } else {
                 effectSource.sourceItem = rect
             }
-            if(gameRoot.running && currentTime - stepTime > 100) {
-                effect.doStep = true
-                stepTime = currentTime
-            } else {
-                effect.doStep = false
-            }
         }
     }
 }
-

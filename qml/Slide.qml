@@ -43,6 +43,7 @@ Item {
 
     property alias contentFont: centeredId.font
     property alias titleFont: titleText.font
+    property bool fullSlide: false
 
     property bool isSlide: true
     property bool delayPoints: delayedContent.length > 0 ? true : false
@@ -122,11 +123,12 @@ Item {
         right: parent.right
         top: parent.top
         bottom: parent.bottom
-        topMargin: parent.height * 0.05
-        bottomMargin: parent.height * 0.05
-        leftMargin: parent.width * 0.05
-        rightMargin: parent.width * 0.05
+        topMargin: fullSlide ? 0 : parent.height * 0.05
+        bottomMargin: fullSlide ? 0 : parent.height * 0.05
+        leftMargin: fullSlide ? 0 : parent.width * 0.05
+        rightMargin: fullSlide ? 0 : parent.width * 0.05
     }
+
     Item {
         id: contentContainer
         anchors {

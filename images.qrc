@@ -7,5 +7,6 @@
         <file>figures/ions.png</file>
         <file>figures/md.png</file>
         <file>modules/flocking-algorithm/bird.png</file>
+        <file>figures/glider.gif</file>
     </qresource>
 </RCC>

@@ -5,5 +5,7 @@
         <file>presentation/GameOfGLSL.qml</file>
         <file>modules/andromeda-viewer/AndromedaViewer.qml</file>
         <file>modules/flocking-algorithm/Flocking.qml</file>
+        <file>presentation/GamePatternButton.qml</file>
+        <file>presentation/GamePatterns.qml</file>
     </qresource>
 </RCC>

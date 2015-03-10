@@ -26,33 +26,73 @@ TransitionPresentation
         }
     }
 
-
-    // -----------------------------------------------
-    // -----------  First Slide-----------------------
-    // -----------------------------------------------
-
     Slide {
-        GameOfGLSL {
-            anchors.fill: parent
+        id: firstSlide
+        centeredText: "Nerver, hjernen og teknologi:\n" +
+                      "Forstå hjernen med programmering"
+        Text {
+            width: parent.width
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.bottom: parent.bottom
+            font.family: firstSlide.titleFontFamily
+            font.pixelSize: firstSlide._titleFontSize * 0.5
+            lineHeight: 1.2
+            horizontalAlignment: Text.Center
+            wrapMode: Text.Wrap
+            text: "Anders Hafreager og Svenn-Arne Dragly\nMars 2015"
         }
     }
 
     Slide {
-        id: secondSlide
+        id: andromedaSlide
 
 //        AndromedaViewer {
 //            id: andromeda
-//            running: currentSlide === secondSlide
+//            running: currentSlide === andromedaSlide
 //            width: 1080
 //            height: 1080
 //        }
     }
 
     Slide {
-        id: thirdSlide
+        centeredText: "Game of Life"
+    }
+
+    Slide {
+        DefaultImage {
+            source: "../figures/glider.gif"
+        }
+    }
+
+    Slide {
+        AnimatedImage {
+            anchors.fill: parent
+            anchors.margins: parent.width * 0.1
+            fillMode: Image.PreserveAspectFit
+            antialiasing: true
+            smooth: true
+            source: "../figures/glider.gif"
+        }
+    }
+
+    Slide {
+        id: gameOfLifeSlide
+        fullSlide: true
+        GameOfGLSL {
+            isCurrent: currentSlide === gameOfLifeSlide
+            anchors.fill: parent
+        }
+    }
+
+    Slide {
+        centeredText: "Flocking"
+    }
+
+    Slide {
+        id: flockingSlide
         Flocking {
             id: flocking
-            running: currentSlide === thirdSlide
+            running: currentSlide === flockingSlide
             width: 1080
             height: 1080
         }
