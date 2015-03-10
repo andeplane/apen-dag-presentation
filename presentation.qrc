@@ -2,5 +2,8 @@
     <qresource prefix="/">
         <file>presentation/MyPresentation.qml</file>
         <file>main.qml</file>
+        <file>presentation/GameOfGLSL.qml</file>
+        <file>modules/andromeda-viewer/AndromedaViewer.qml</file>
+        <file>modules/flocking-algorithm/Flocking.qml</file>
     </qresource>
 </RCC>

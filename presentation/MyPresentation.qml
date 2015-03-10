@@ -30,31 +30,35 @@ TransitionPresentation
     // -----------------------------------------------
     // -----------  First Slide-----------------------
     // -----------------------------------------------
-    Slide {
-        id: firstSlide
 
-        delayPoints: true
-        DefaultImage {
-            source: "../../figures/benzene.png"
+    Slide {
+        GameOfGLSL {
+            anchors.fill: parent
         }
     }
 
     Slide {
         id: secondSlide
 
-        AndromedaViewer {
+//        AndromedaViewer {
+//            id: andromeda
+//            running: currentSlide === secondSlide
+//            width: 1080
+//            height: 1080
+//        }
+    }
+
+    Slide {
+        id: thirdSlide
+        Flocking {
+            id: flocking
+            running: currentSlide === thirdSlide
             width: 1080
             height: 1080
         }
     }
 
     Slide {
-        id: thirdSlide
-
-        Flocking {
-            width: 1080
-            height: 1080
-        }
     }
 
 }

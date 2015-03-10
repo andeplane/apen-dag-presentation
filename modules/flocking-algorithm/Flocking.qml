@@ -10,6 +10,7 @@ Item {
     id: flockingRoot
 
     property real aspectRatio: width/height
+    property alias running: flockingController.running
     width: 1080
     height: 1080
 

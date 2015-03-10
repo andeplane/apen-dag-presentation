@@ -12,7 +12,5 @@
         <file>qml/TransitionPresentation.qml</file>
         <file>qml/UpperLeftSlide.qml</file>
         <file>qml/UpperRightSlide.qml</file>
-        <file>modules/andromeda-viewer/AndromedaViewer.qml</file>
-        <file>modules/flocking-algorithm/Flocking.qml</file>
     </qresource>
 </RCC>

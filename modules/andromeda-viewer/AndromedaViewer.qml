@@ -9,6 +9,7 @@ import Andromeda 1.0
 Item {
     id: andromedaRoot
     property real aspectRatio: width/height
+    property alias running: andromedaController.running
     width: 1080
     height: 1080
     focus: true
