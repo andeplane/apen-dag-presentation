@@ -22,8 +22,8 @@ Item {
         y -= size*0.5;
         var newObject = Qt.createQmlObject('import QtQuick 2.4; Rectangle {color: "red"; x:'+x+'; y:'+y+'; width: '+size+'; height: '+size+'; radius: width*0.5;}',
              flockingRoot, "dynamicSnippet1");
-        x = 2*(x / controllerRoot.width) - 1.0
-        y = 2*(y / controllerRoot.height) - 1.0
+        x = 2*(x / flockingRoot.width) - 1.0
+        y = 2*(y / flockingRoot.height) - 1.0
         flockingController.addObstacle(Qt.vector2d(x,y));
     }
 

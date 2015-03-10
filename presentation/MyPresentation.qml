@@ -85,7 +85,7 @@ TransitionPresentation
     }
 
     Slide {
-        centeredText: "Flocking"
+        centeredText: "Flokker"
     }
 
     Slide {
@@ -96,6 +96,22 @@ TransitionPresentation
             width: 1080
             height: 1080
         }
+    }
+
+    Slide {
+        DefaultImage {
+            source: "../figures/brain.png"
+        }
+    }
+
+    Slide {
+        DefaultImage {
+            source: "../figures/neuron.jpg"
+        }
+    }
+
+    Slide {
+
     }
 
     Slide {
