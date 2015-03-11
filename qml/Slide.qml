@@ -149,6 +149,7 @@ Item {
         anchors.top: parent.top
         anchors.topMargin: parent._fontSize * 1.0
         font.family: titleFontFamily
+        font.weight: Font.Light
         color: slideTextColor
         horizontalAlignment: Text.Center
         wrapMode: Text.Wrap

@@ -156,23 +156,6 @@ TransitionPresentation
         }
     }
 
-//    Slide {
-//        DefaultImage {
-//            source: "../figures/glider.gif"
-//        }
-//    }
-
-//    Slide {
-//        AnimatedImage {
-//            anchors.fill: parent
-//            anchors.margins: parent.width * 0.1
-//            fillMode: Image.PreserveAspectFit
-//            antialiasing: true
-//            smooth: true
-//            source: "../figures/glider.gif"
-//        }
-//    }
-
     Slide {
         id: gameOfLifeSlide
         fullSlide: true
@@ -235,9 +218,6 @@ TransitionPresentation
     }
 
     Slide {
-    }
-
-    Slide {
         centeredText: "10¹¹ nerveceller\n10¹⁴ koblinger"
     }
 
@@ -267,6 +247,71 @@ TransitionPresentation
         title: "Atomify"
         DefaultImage {
             source: "../figures/atomify.png"
+        }
+    }
+
+    Slide {
+        title: "Hva vi vet på ulike skalaer"
+    }
+
+    Slide {
+        title: "Fysikere og biologer i samarbeid"
+        DefaultImage {
+            source: "../figures/cinpla.png"
+        }
+    }
+
+    Slide {
+        id: nobelprisSlide
+        title: "Nobelprisen 2014\nKeefe, Moser & Moser"
+        Row {
+            anchors.fill: parent
+            anchors.margins: parent.width * 0.1
+            Image {
+                height: parent.height
+                width: parent.width / 2
+                source: "../figures/keefe.jpg"
+                anchors.margins: parent.width * 0.1
+                fillMode: Image.PreserveAspectFit
+                antialiasing: true
+                smooth: true
+            }
+            Image {
+                height: parent.height
+                width: parent.width / 2
+                source: "../figures/moser.jpg"
+                anchors.margins: parent.width * 0.1
+                fillMode: Image.PreserveAspectFit
+                antialiasing: true
+                smooth: true
+            }
+        }
+    }
+
+    Slide {
+        id: fyhnSlide
+        title: "Tre artikler om stedssansen"
+        Row {
+            anchors.fill: parent
+            anchors.margins: parent.width * 0.1
+            Image {
+                height: parent.height
+                width: parent.width / 2
+                source: "../figures/marianne.jpg"
+                anchors.margins: parent.width * 0.1
+                fillMode: Image.PreserveAspectFit
+                antialiasing: true
+                smooth: true
+            }
+            Image {
+                height: parent.height
+                width: parent.width / 2
+                source: "../figures/torkel.jpg"
+                anchors.margins: parent.width * 0.1
+                fillMode: Image.PreserveAspectFit
+                antialiasing: true
+                smooth: true
+            }
         }
     }
 
