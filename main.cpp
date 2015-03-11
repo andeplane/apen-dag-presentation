@@ -24,7 +24,8 @@ int main(int argc, char *argv[])
     view.setResizeMode(QQuickView::SizeRootObjectToView);
     view.setSource(QUrl("presentation/MyPresentation.qml"));
 
-    view.showFullScreen();
+//    view.showFullScreen();
+    view.show();
 
     return app.exec();
 }
