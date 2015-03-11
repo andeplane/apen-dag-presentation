@@ -10,8 +10,8 @@ Item {
     id: andromedaRoot
     property real aspectRatio: width/height
     property alias running: andromedaController.running
-    width: 1080
-    height: width/1.3333
+    width: height*1.3333
+    height: 1080
     focus: true
 
     Andromeda {

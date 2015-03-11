@@ -89,7 +89,7 @@ TransitionPresentation
             id: andromeda
             anchors.horizontalCenter: parent.horizontalCenter
             running: currentSlide === andromedaSlide
-            width: 1080
+            height: presentation.height*0.8
         }
 
         TopText {
@@ -132,7 +132,9 @@ TransitionPresentation
     }
 
     Slide {
-        title: "Universets regler"
+        TopText {
+            text: "Universets regler"
+        }
 
         Latex {
             id: latex0
@@ -231,7 +233,9 @@ TransitionPresentation
         Flocking {
             id: flocking
             running: currentSlide === flockingSlide
-            width: 1080
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            height: presentation.height
         }
     }
 
