@@ -84,14 +84,17 @@ TransitionPresentation
     Slide {
         id: andromedaSlide
 
-//        AndromedaViewer {
-//            id: andromeda
-//            anchors.horizontalCenter: parent.horizontalCenter
-//            running: currentSlide === andromedaSlide
-//            width: 1080
-//        }
+        AndromedaViewer {
+            y: 100
+            id: andromeda
+            anchors.horizontalCenter: parent.horizontalCenter
+            running: currentSlide === andromedaSlide
+            width: 1080
+        }
 
-        title: "Andromeda"
+        TopText {
+            text: "Andromeda"
+        }
     }
 
     Slide {
