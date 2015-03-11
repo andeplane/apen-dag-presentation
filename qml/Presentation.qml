@@ -44,7 +44,8 @@ Item {
     signal showNormal;
 
     property variant slides: []
-    property int currentSlide;
+    property int currentSlideIndex;
+    property var currentSlide: null
     property bool showNotes: false;
     property bool allowDelay: true;
 
@@ -53,6 +54,12 @@ Item {
     // Private API
     property bool _faded: false
     property int _userNum;
+
+    onCurrentSlideIndexChanged: {
+        if(slides.length > currentSlideIndex) {
+            currentSlide = slides[currentSlideIndex]
+        }
+    }
 
     onFullScreenChanged: {
         if(fullScreen) {
@@ -82,8 +89,8 @@ Item {
 
         // Make first slide visible...
         if (root.slides.length > 0) {
-            root.currentSlide = 0;
-            root.slides[root.currentSlide].visible = true;
+            root.currentSlideIndex = 0;
+            root.slides[root.currentSlideIndex].visible = true;
         }
     }
 
@@ -98,10 +105,10 @@ Item {
         if (_faded) {
             return
         }
-        var from = slides[currentSlide]
+        var from = slides[currentSlideIndex]
         var to = slides[0]
         if (switchSlides(from, to, false)) {
-            currentSlide = 0;
+            currentSlideIndex = 0;
             root.focus = true;
         }
     }
@@ -111,10 +118,10 @@ Item {
         if (_faded) {
             return
         }
-        var from = slides[currentSlide]
+        var from = slides[currentSlideIndex]
         var to = slides[root.slides.length - 1]
         if (switchSlides(from, to, true)) {
-            currentSlide = root.slides.length - 1;
+            currentSlideIndex = root.slides.length - 1;
             root.focus = true;
         }
     }
@@ -123,15 +130,15 @@ Item {
         root._userNum = 0
         if (_faded)
             return
-        if (root.slides[currentSlide].delayPoints) {
-            if (root.slides[currentSlide]._advance())
+        if (root.slides[currentSlideIndex].delayPoints) {
+            if (root.slides[currentSlideIndex]._advance())
                 return;
         }
-        if (root.currentSlide + 1 < root.slides.length) {
-            var from = slides[currentSlide]
-            var to = slides[currentSlide + 1]
+        if (root.currentSlideIndex + 1 < root.slides.length) {
+            var from = slides[currentSlideIndex]
+            var to = slides[currentSlideIndex + 1]
             if (switchSlides(from, to, true)) {
-                currentSlide = currentSlide + 1;
+                currentSlideIndex = currentSlideIndex + 1;
                 root.focus = true;
             }
         }
@@ -141,15 +148,15 @@ Item {
         root._userNum = 0
         if (root._faded)
             return
-        if (root.slides[currentSlide].delayPoints) {
-            if (root.slides[currentSlide]._retreat())
+        if (root.slides[currentSlideIndex].delayPoints) {
+            if (root.slides[currentSlideIndex]._retreat())
                 return;
         }
-        if (root.currentSlide - 1 >= 0) {
-            var from = slides[currentSlide]
-            var to = slides[currentSlide - 1]
+        if (root.currentSlideIndex - 1 >= 0) {
+            var from = slides[currentSlideIndex]
+            var to = slides[currentSlideIndex - 1]
             if (switchSlides(from, to, false)) {
-                currentSlide = currentSlide - 1;
+                currentSlideIndex = currentSlideIndex - 1;
                 root.focus = true;
             }
         }
@@ -161,11 +168,11 @@ Item {
             return
         if (_userNum < 0)
             goToNextSlide()
-        else if (root.currentSlide != _userNum) {
-            var from = slides[currentSlide]
+        else if (root.currentSlideIndex != _userNum) {
+            var from = slides[currentSlideIndex]
             var to = slides[_userNum]
-            if (switchSlides(from, to, _userNum > currentSlide)) {
-                currentSlide = _userNum;
+            if (switchSlides(from, to, _userNum > currentSlideIndex)) {
+                currentSlideIndex = _userNum;
                 root.focus = true;
             }
         }
@@ -231,7 +238,7 @@ Item {
             anchors.margins: parent.height * 0.1;
             font.pixelSize: 16
             wrapMode: Text.WordWrap
-            property string notes: root.slides[root.currentSlide].notes;
+            property string notes: root.slides[root.currentSlideIndex].notes;
             text: notes == "" ? "Slide has no notes..." : notes;
             font.italic: notes == "";
         }
