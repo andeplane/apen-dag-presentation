@@ -49,6 +49,30 @@ TransitionPresentation
     }
 
     Slide {
+        id: ensjo
+        TopText {
+            text: "Langt å gå til Blindern"
+            font.pixelSize: defaultFontSize*0.75
+        }
+
+        DefaultImage {
+            source: "../figures/osloensjo.png"
+        }
+    }
+
+    Slide {
+        id: moon1
+        TopText {
+            text: "Langt å fly til månen..."
+            font.pixelSize: defaultFontSize*0.75
+        }
+
+        DefaultImage {
+            source: "../figures/earthmoon2.jpg"
+        }
+    }
+
+    Slide {
         id: andromedaSlide
 
         AndromedaViewer {
@@ -58,16 +82,7 @@ TransitionPresentation
             width: 1080
         }
 
-        Text {
-            width: parent.width
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: parent.top
-            font.family: firstSlide.titleFontFamily
-            font.pixelSize: firstSlide._titleFontSize * 0.5
-            horizontalAlignment: Text.Center
-
-            text: "Andromeda"
-        }
+        title: "Andromeda"
     }
 
     Slide {
@@ -101,6 +116,14 @@ TransitionPresentation
 
         DefaultImage {
             source: "../figures/universeSize.jpg"
+        }
+    }
+
+    Slide {
+        title: "Universets regler"
+        Latex {
+            width: parent.width*0.5
+            text: "$$ G_{\\mu \\nu} - \\Lambda g_{\\mu \\nu} = 8\\pi T_{\\mu \\nu} $$"
         }
     }
 

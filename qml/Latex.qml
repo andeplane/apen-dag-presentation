@@ -5,7 +5,7 @@ import LatexPresentation 1.0
 Image {
     property string text: "No text specified"
     property string color: parent.textColor != undefined ? parent.textColor : "black"
-    property bool forceCompile: false
+    property bool forceCompile: true
     property bool centered: true
     property int dpi: 600
 

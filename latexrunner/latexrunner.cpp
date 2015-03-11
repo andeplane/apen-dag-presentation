@@ -7,7 +7,7 @@
 
 LatexRunner::LatexRunner(QQuickItem *parent) :
     QQuickItem(parent),
-    m_dpi(600),
+    m_dpi(3600),
     m_forceCompile(false)
 {
 }
@@ -61,7 +61,6 @@ QString LatexRunner::createFormula(QString formula, QString color, bool centered
 #endif
         qDebug() << latexCommand;
         system(latexCommand.toStdString().c_str());
-
 #ifdef LINUX
         QString convertCommand = "convert -trim -density " + dpi() + " formula.pdf -quality 90 " + imageFileName;
 #else
