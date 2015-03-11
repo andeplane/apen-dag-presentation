@@ -86,6 +86,8 @@ Item {
         property real mouseStartY: 0.0
         property real cameraStartX: 0.0
         property real cameraStartY: 0.0
+        property bool rightButton: false
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
         width: parent.width
         height: parent.height
         onWheel: {
@@ -123,6 +125,8 @@ Item {
         }
 
         onPressed: {
+            rightButton = (mouse.button == Qt.RightButton)
+
             var mousePos = scaledMousePos(mouse);
 
             mouseStartX = mousePos.x
@@ -158,7 +162,11 @@ Item {
             var dy = mousePos.y - mouseStartY
             var dr2 = dx*dx + dy*dy
             if(dr2 < 1e-5) {
-                var newState = andromedaController.state + andromedaController.stateDerivative
+                // Right click to reduce state
+                var dir = rightButton ? -1 : 1
+
+                var newState = andromedaController.state + andromedaController.stateDerivative*dir
+
                 if(newState < 0) {
                     setState(1);
                     andromedaController.stateDerivative = 1;

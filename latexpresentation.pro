@@ -71,4 +71,6 @@ DISTFILES += \
     presentation/GamePatterns.qml \
     presentation/MyPresentation.qml \
     latex/formula.tex \
-    qml/main.qml
+    qml/main.qml \
+    modules/andromeda-viewer/AndromedaViewer.qml \
+    modules/flocking-algorithm/Flocking.qml
