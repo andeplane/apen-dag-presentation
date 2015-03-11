@@ -198,7 +198,6 @@ TransitionPresentation
                     nicolaasVideo.play();
                 }
             }
-
         }
     }
 

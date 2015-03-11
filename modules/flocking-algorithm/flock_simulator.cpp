@@ -91,26 +91,24 @@ void Simulator::step()
         QVector2D mouseForce;
         QVector2D obstacleForce;
 
-        if(mousePosition.x() != 0.0 && mousePosition.y() != 0) {
-            float dx = pos[i][0] - mousePosition[0];
-            float dy = pos[i][1] - mousePosition[1];
+        float dx = pos[i][0] - mousePosition[0];
+        float dy = pos[i][1] - mousePosition[1];
 
-            if(periodicX) {
-                if(dx < -1) dx += 2.0;
-                else if(dx > 1) dx -= 2.0;
-            }
-            if(periodicY) {
-                if(dy < -1) dy += 2.0;
-                else if(dy > 1) dy -= 2.0;
-            }
-            float dr2 = dx*dx + dy*dy;
-            mouseForce[0] = dx;
-            mouseForce[1] = dy;
+        if(periodicX) {
+            if(dx < -1) dx += 2.0;
+            else if(dx > 1) dx -= 2.0;
+        }
+        if(periodicY) {
+            if(dy < -1) dy += 2.0;
+            else if(dy > 1) dy -= 2.0;
+        }
+        float dr2 = dx*dx + dy*dy;
+        mouseForce[0] = dx;
+        mouseForce[1] = dy;
 
-            if(dr2 < mouseDistance*mouseDistance) {
-                mouseForce.normalize();
-                vel[i] += mouseForce*mouseForceMagnitude*dt;
-            }
+        if(dr2 < mouseDistance*mouseDistance) {
+            mouseForce.normalize();
+            vel[i] += mouseForce*mouseForceMagnitude*dt;
         }
 
         for(QVector2D &obstaclePos : obstacles) {

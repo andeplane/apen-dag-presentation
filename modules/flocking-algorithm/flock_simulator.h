@@ -23,7 +23,7 @@ public:
     float scale = 1.0;
     float boundaryForceMagnitude = 2.0;
     float separationDistance = 0.15;
-    float cohesionDistance = 0.9;
+    float cohesionDistance = 2.0;
     float alignmentDistance = 0.5;
     float mouseDistance = 0.3;
     float obstacleDistance = 0.2;
