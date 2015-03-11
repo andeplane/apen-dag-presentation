@@ -264,20 +264,9 @@ TransitionPresentation
 
     Slide {
         id: atomifySlide
-        Video {
-            id: atomifyVideo
-            anchors.fill: parent
-            source: "../videos/atomify.mp4"
-            autoLoad:  true
-            property bool running: atomifySlide === presentation.currentSlide
-            onRunningChanged: {
-                if(running) {
-                    atomifyVideo.play()
-                } else {
-                    atomifyVideo.pause()
-                }
-            }
-
+        title: "Atomify"
+        DefaultImage {
+            source: "../figures/atomify.png"
         }
     }
 
