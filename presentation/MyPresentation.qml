@@ -116,6 +116,10 @@ TransitionPresentation
     }
 
     Slide {
+        centeredText: "10¹¹ nerveceller\n10¹⁴ koblinger"
+    }
+
+    Slide {
         DefaultImage {
             source: "../figures/neuron-diagram.png"
         }
@@ -126,10 +130,6 @@ TransitionPresentation
             "Ingen hjerneceller er like",
             "Det er veldig mange av dem"
         ]
-    }
-
-    Slide {
-        centeredText: "10¹¹ nerveceller\n10¹⁴ koblinger"
     }
 
     Slide {
