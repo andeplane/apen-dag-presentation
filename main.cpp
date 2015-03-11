@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
-    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+    engine.load(QUrl(QStringLiteral("qml/main.qml")));
 
     return app.exec();
 }

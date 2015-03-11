@@ -51,12 +51,12 @@ TransitionPresentation
     Slide {
         id: andromedaSlide
 
-        AndromedaViewer {
-            id: andromeda
-            anchors.horizontalCenter: parent.horizontalCenter
-            running: currentSlide === andromedaSlide
-            width: 1080
-        }
+//        AndromedaViewer {
+//            id: andromeda
+//            anchors.horizontalCenter: parent.horizontalCenter
+//            running: currentSlide === andromedaSlide
+//            width: 1080
+//        }
 
         Text {
             width: parent.width
@@ -188,15 +188,27 @@ TransitionPresentation
         }
     }
 
-    Slide {
-        bullets: [
-            "Ingen hjerneceller er like",
-            "Det er veldig mange av dem"
-        ]
-    }
+//    Slide {
+//        centeredText: "Regnekraft dagens PC:\n10¹⁰ per sekund"
+//    }
 
     Slide {
-        centeredText: "Regnekraft dagens PC:\n10¹⁰ per sekund"
+        id: atomifySlide
+        Video {
+            id: atomifyVideo
+            anchors.fill: parent
+            source: "../videos/atomify.mp4"
+            autoLoad:  true
+            property bool running: atomifySlide === presentation.currentSlide
+            onRunningChanged: {
+                if(running) {
+                    atomifyVideo.play()
+                } else {
+                    atomifyVideo.pause()
+                }
+            }
+
+        }
     }
 
     Slide {

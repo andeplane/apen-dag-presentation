@@ -26,10 +26,10 @@ HEADERS += \
     modules/flocking-algorithm/flock_simulator.h
 
 RESOURCES += \
-    images.qrc \
-    latex.qrc \
-    qml.qrc \
-    presentation.qrc
+#    images.qrc \
+#    latex.qrc \
+#    qml.qrc \
+#    presentation.qrc
 
 macx {
     DEFINES += MAC_OSX
@@ -44,3 +44,29 @@ QML_IMPORT_PATH =
 
 # Default rules for deployment.
 include(deployment.pri)
+
+copydata.commands = $(COPY_DIR) $$PWD/latex $$PWD/qml $$PWD/modules $$PWD/figures $$PWD/videos $$PWD/fonts $$PWD/presentation $$OUT_PWD
+first.depends = $(first) copydata
+export(first.depends)
+export(copydata.commands)
+QMAKE_EXTRA_TARGETS += first copydata
+
+DISTFILES += \
+    qml/BorderedImage.qml \
+    qml/DefaultImage.qml \
+    qml/Heading.qml \
+    qml/Latex.qml \
+    qml/LowerLeftSlide.qml \
+    qml/LowerRightSlide.qml \
+    qml/MultiSlide.qml \
+    qml/Presentation.qml \
+    qml/Slide.qml \
+    qml/TopText.qml \
+    qml/TransitionPresentation.qml \
+    qml/UpperLeftSlide.qml \
+    qml/UpperRightSlide.qml \
+    presentation/GameOfGLSL.qml \
+    presentation/GameOfLifeExplained.qml \
+    presentation/GamePatternButton.qml \
+    presentation/GamePatterns.qml \
+    presentation/MyPresentation.qml
