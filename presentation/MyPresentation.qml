@@ -193,12 +193,8 @@ TransitionPresentation
             }
 
             onStatusChanged: {
-                console.log(nicolaasVideo.status);
-                console.log("Also: "+MediaPlayer.EndOfMedia)
-
                 if(nicolaasVideo.status === MediaPlayer.EndOfMedia)
                 {
-                    console.log("EOM")
                     nicolaasVideo.play();
                 }
             }
