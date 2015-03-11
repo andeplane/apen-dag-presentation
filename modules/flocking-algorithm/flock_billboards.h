@@ -9,6 +9,7 @@ struct BillboardsData
 {
     vector<QVector2D> positions;
     vector<float> rotation;
+    float scale = 1.0;
 };
 
 struct VertexData
@@ -21,7 +22,7 @@ struct VertexData
 class Billboards
 {
 public:
-    Billboards();
+    Billboards(QString filename);
     ~Billboards();
     void update(BillboardsData &data);
     void render();
@@ -35,7 +36,7 @@ private:
 
     void createShaderProgram();
     void generateVBOs();
-    void uploadTexture();
+    void uploadTexture(QString filename);
     void ensureInitialized();
     QVector3D vectorFromColor(const QColor &color);
 };

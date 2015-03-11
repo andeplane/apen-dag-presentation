@@ -14,10 +14,10 @@ Simulator::Simulator(QObject *parent) :
     alignmentDistance *= scale;
     mouseDistance *= scale;
 
-    //    mouseForceMagnitude *= scale;
-        separationForceMagnitude *= 5;
-        cohesionForceMagnitude *= 10;
-        alignmentForceMagnitude *= 10;
+    mouseForceMagnitude      *= 5;
+    separationForceMagnitude *= 5;
+    cohesionForceMagnitude   *= 10;
+    alignmentForceMagnitude  *= 10;
 
     accelerationLimit = 0.0;
     speedLimit = 0.25;
@@ -28,7 +28,7 @@ Simulator::Simulator(QObject *parent) :
     qDebug() << "Mouse distance: " << mouseDistance;
 
     dt = 0.01;
-    createBirds(300);
+    createBirds(500);
 }
 
 
@@ -171,7 +171,7 @@ void Simulator::step()
         if(accelerationLimit > 0) {
             float accelerationMagnitudeSquared = acc[i].lengthSquared();
             if(accelerationMagnitudeSquared > accelerationLimit*accelerationLimit) {
-                // acc[i] *= accelerationLimit/acc[i].length();
+                acc[i] *= accelerationLimit/acc[i].length();
             }
         }
 

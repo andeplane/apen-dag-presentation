@@ -6,12 +6,12 @@
 
 using std::vector;
 namespace Flocking {
-Billboards::Billboards() :
+Billboards::Billboards(QString filename) :
     m_funcs(0),
     m_program(0)
 {
     generateVBOs();
-    uploadTexture();
+    uploadTexture(filename);
     GLint max;
     m_funcs->glGetIntegerv(GL_MAX_TEXTURE_SIZE, &max);
     qDebug() << "Max texture size: " << max;
@@ -29,9 +29,9 @@ void Billboards::generateVBOs()
     m_funcs->glGenBuffers(2, m_vboIds);
 }
 
-void Billboards::uploadTexture()
+void Billboards::uploadTexture(QString filename)
 {
-    m_texture = new QOpenGLTexture(QImage(QString(":/modules/flocking-algorithm/bird.png")).mirrored());
+    m_texture = new QOpenGLTexture(QImage(QString(filename)).mirrored());
 }
 
 void Billboards::ensureInitialized()
@@ -58,7 +58,7 @@ void Billboards::update(BillboardsData &data)
     up.setX(0.0);
     up.setY(1.0);
 
-    float scale = 0.03;
+    float scale = data.scale;
     QVector2D ul = (0.5*up - 0.5*right)*scale;
     QVector2D ur = (0.5*up + 0.5*right)*scale;
     QVector2D dl = (-0.5*up - 0.5*right)*scale;
@@ -71,10 +71,15 @@ void Billboards::update(BillboardsData &data)
     QVector3D normalColor = vectorFromColor(QColor("#1f78b4"));
 
     for(unsigned int i=0; i<data.positions.size(); i++) {
-        // NOTE: Y and Z are swapped!
         QVector2D &position = positions[i];
-        float cosTheta = cos(rotation[i]);
-        float sinTheta = sin(rotation[i]);
+        float rot = 0.0;
+        if(rotation.size() > 0) {
+            if(rotation.size() == 1) rot = rotation[0];
+            else rot = rotation[i];
+        }
+
+        float cosTheta = cos(rot);
+        float sinTheta = sin(rot);
 
         m_vertices[4*i + 0].position = position;
         m_vertices[4*i + 0].position[0] += dl[0]*cosTheta - dl[1]*sinTheta;

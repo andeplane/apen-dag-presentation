@@ -25,7 +25,7 @@ public:
     float separationDistance = 0.05;
     float cohesionDistance = 0.3;
     float alignmentDistance = 0.3;
-    float mouseDistance = 0.1;
+    float mouseDistance = 0.25;
     float obstacleDistance = 0.2;
     float obstacleForceMagnitude = 0.25;
     float mouseForceMagnitude = 0.5;

@@ -30,23 +30,23 @@ TransitionPresentation
     // -----------------------------------------------
     // -----------  First Slide-----------------------
     // -----------------------------------------------
-    Slide {
-        id: firstSlide
+//    Slide {
+//        id: firstSlide
 
-        delayPoints: true
-        DefaultImage {
-            source: "../../figures/benzene.png"
-        }
-    }
+//        delayPoints: true
+//        DefaultImage {
+//            source: "../../figures/benzene.png"
+//        }
+//    }
 
-    Slide {
-        id: secondSlide
+//    Slide {
+//        id: secondSlide
 
-        AndromedaViewer {
-            width: 1080
-            height: 1080
-        }
-    }
+//        AndromedaViewer {
+//            width: 1080
+//            height: 1080
+//        }
+//    }
 
     Slide {
         id: thirdSlide

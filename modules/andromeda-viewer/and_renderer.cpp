@@ -104,7 +104,6 @@ Renderer::Renderer() :
         path3x = imagePath + "andromeda_3x_low.jpg";
     }
 
-
     m_andromeda1x = new Billboards(path1x);
     m_andromeda2x = new Billboards(path2x);
     m_andromeda3x = new Billboards(path3x);

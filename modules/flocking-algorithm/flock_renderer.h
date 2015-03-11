@@ -12,6 +12,7 @@
 namespace Flocking {
 struct VisualData {
     BillboardsData billboardsData;
+    BillboardsData mouseData;
 };
 
 class Renderer : public QQuickFramebufferObject::Renderer
@@ -26,7 +27,8 @@ public:
 
 private:
     bool m_skipNextFrame;
-    Billboards m_billboards;
+    Billboards *m_billboards;
+    Billboards *m_scaryBird;
     VisualData m_data;
 
     int m_syncCount;
