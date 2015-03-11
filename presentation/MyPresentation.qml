@@ -111,6 +111,12 @@ TransitionPresentation
     }
 
     Slide {
+        DefaultImage {
+            source: "../figures/neuron-diagram.png"
+        }
+    }
+
+    Slide {
         bullets: [
             "Ingen hjerneceller er like",
             "Det er veldig mange av dem"
@@ -126,7 +132,7 @@ TransitionPresentation
     }
 
     Slide {
-        centeredText: "Regnekraft dagens PC: 10¹⁰ per sekund"
+        centeredText: "Regnekraft dagens PC:\n10¹⁰ per sekund"
     }
 
     Slide {
