@@ -296,7 +296,7 @@ TransitionPresentation
             anchors.margins: parent.width * 0.1
             Image {
                 height: parent.height
-                width: parent.width / 2
+                width: parent.width / 3
                 source: "../figures/marianne.jpg"
                 anchors.margins: parent.width * 0.1
                 fillMode: Image.PreserveAspectFit
@@ -305,12 +305,44 @@ TransitionPresentation
             }
             Image {
                 height: parent.height
-                width: parent.width / 2
+                width: parent.width / 3
                 source: "../figures/torkel.jpg"
                 anchors.margins: parent.width * 0.1
                 fillMode: Image.PreserveAspectFit
                 antialiasing: true
                 smooth: true
+            }
+            Item {
+                height: parent.height
+                width: parent.width / 3
+                Image {
+//                    height: parent.height
+                    width: parent.width * 0.8
+                    source: "../figures/article1.png"
+                    fillMode: Image.PreserveAspectFit
+                    antialiasing: true
+                    smooth: true
+                }
+                Image {
+                    x: parent.width * 0.1
+                    y: parent.height * 0.3
+//                    height: parent.height
+                    width: parent.width * 0.8
+                    source: "../figures/article2.png"
+                    fillMode: Image.PreserveAspectFit
+                    antialiasing: true
+                    smooth: true
+                }
+                Image {
+                    x: parent.width * 0.2
+                    y: parent.height * 0.6
+//                    height: parent.height
+                    width: parent.width * 0.8
+                    source: "../figures/article3.png"
+                    fillMode: Image.PreserveAspectFit
+                    antialiasing: true
+                    smooth: true
+                }
             }
         }
     }
