@@ -75,12 +75,12 @@ TransitionPresentation
     Slide {
         id: andromedaSlide
 
-        AndromedaViewer {
-            id: andromeda
-            anchors.horizontalCenter: parent.horizontalCenter
-            running: currentSlide === andromedaSlide
-            width: 1080
-        }
+//        AndromedaViewer {
+//            id: andromeda
+//            anchors.horizontalCenter: parent.horizontalCenter
+//            running: currentSlide === andromedaSlide
+//            width: 1080
+//        }
 
         title: "Andromeda"
     }
@@ -128,7 +128,7 @@ TransitionPresentation
     }
 
     Slide {
-        centeredText: "Game of Life"
+        centeredText: "Conway's Game of Life"
     }
 
     Slide {
@@ -137,22 +137,22 @@ TransitionPresentation
         }
     }
 
-    Slide {
-        DefaultImage {
-            source: "../figures/glider.gif"
-        }
-    }
+//    Slide {
+//        DefaultImage {
+//            source: "../figures/glider.gif"
+//        }
+//    }
 
-    Slide {
-        AnimatedImage {
-            anchors.fill: parent
-            anchors.margins: parent.width * 0.1
-            fillMode: Image.PreserveAspectFit
-            antialiasing: true
-            smooth: true
-            source: "../figures/glider.gif"
-        }
-    }
+//    Slide {
+//        AnimatedImage {
+//            anchors.fill: parent
+//            anchors.margins: parent.width * 0.1
+//            fillMode: Image.PreserveAspectFit
+//            antialiasing: true
+//            smooth: true
+//            source: "../figures/glider.gif"
+//        }
+//    }
 
     Slide {
         id: gameOfLifeSlide
@@ -199,7 +199,10 @@ TransitionPresentation
     }
 
     Slide {
-        centeredText: "Neuronify"
+        title: "Neuronify"
+        DefaultImage {
+            source: "../figures/neuronify.png"
+        }
     }
 
     Slide {
@@ -208,15 +211,27 @@ TransitionPresentation
         }
     }
 
-    Slide {
-        bullets: [
-            "Ingen hjerneceller er like",
-            "Det er veldig mange av dem"
-        ]
-    }
+//    Slide {
+//        centeredText: "Regnekraft dagens PC:\n10¹⁰ per sekund"
+//    }
 
     Slide {
-        centeredText: "Regnekraft dagens PC:\n10¹⁰ per sekund"
+        id: atomifySlide
+        Video {
+            id: atomifyVideo
+            anchors.fill: parent
+            source: "../videos/atomify.mp4"
+            autoLoad:  true
+            property bool running: atomifySlide === presentation.currentSlide
+            onRunningChanged: {
+                if(running) {
+                    atomifyVideo.play()
+                } else {
+                    atomifyVideo.pause()
+                }
+            }
+
+        }
     }
 
     Slide {

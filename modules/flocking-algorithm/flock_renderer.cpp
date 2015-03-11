@@ -56,8 +56,8 @@ Renderer::Renderer() :
     m_renderCount(0),
     m_dirtyCount(0)
 {
-    m_billboards = new Billboards(":/modules/flocking-algorithm/bird.png");
-    m_scaryBird = new Billboards(":/modules/flocking-algorithm/scarybird.jpg");
+    m_billboards = new Billboards("modules/flocking-algorithm/bird.png");
+    m_scaryBird = new Billboards("modules/flocking-algorithm/scarybird.jpg");
 }
 
 Renderer::~Renderer()

@@ -27,7 +27,8 @@ QString LatexRunner::createFormula(QString formula, QString color, bool centered
         QDir().mkdir(tmpDirName);
     }
 
-    QFile templateFile(":/latex/formula.tex");
+    QFile templateFile("latex/formula.tex");
+
     QString templateTargetFileName = tmpDirName + "/formula.tex";
     QFile templateTargetFile(templateTargetFileName);
     if(templateTargetFile.exists()) {

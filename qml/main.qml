@@ -1,6 +1,6 @@
 import QtQuick 2.2
 import QtQuick.Window 2.0
-import "presentation"
+import "../presentation"
 
 Window {
     id: mainWindow

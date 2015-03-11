@@ -8,7 +8,11 @@
         <file>figures/universeSize.jpg</file>
         <file>figures/andromedaMoon.png</file>
         <file>figures/neuron-diagram.png</file>
+<<<<<<< HEAD
         <file>figures/osloensjo.png</file>
         <file>figures/earthmoon2.jpg</file>
+=======
+        <file>figures/neuronify.png</file>
+>>>>>>> 7c3b3519980ba27c7c37bed10031a83562d9b0a7
     </qresource>
 </RCC>

@@ -3,6 +3,7 @@
 #include <QColor>
 #include <QRgb>
 #include <cmath>
+#include <QFileInfo>
 
 using std::vector;
 namespace Flocking {
@@ -29,8 +30,17 @@ void Billboards::generateVBOs()
     m_funcs->glGenBuffers(2, m_vboIds);
 }
 
+void checkIfFileExists(QString filename) {
+    QFileInfo info(filename);
+    if(!info.exists()) {
+        qDebug() << "File " << filename << " is missing. This will crash, so we abort now instead.";
+        exit(1);
+    }
+}
+
 void Billboards::uploadTexture(QString filename)
 {
+    checkIfFileExists(filename);
     m_texture = new QOpenGLTexture(QImage(QString(filename)).mirrored());
 }
 

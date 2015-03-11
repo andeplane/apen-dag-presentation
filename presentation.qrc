@@ -8,6 +8,5 @@
         <file>presentation/GamePatternButton.qml</file>
         <file>presentation/GamePatterns.qml</file>
         <file>presentation/GameOfLifeExplained.qml</file>
-        <file>presentation/ExplainedRectangle.qml</file>
     </qresource>
 </RCC>

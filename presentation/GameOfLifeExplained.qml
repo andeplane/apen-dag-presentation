@@ -3,13 +3,13 @@ import QtQuick 2.0
 Item {
     id: explainedRoot
     property var steps: [
-        [[0, 0, 0], [1, 1, 1], [0, 0, 0]],
-        [[0, 2, 0], [1, 1, 1], [0, 0, 0]],
-        [[0, 2, 0], [1, 1, 1], [0, 2, 0]],
-        [[0, 2, 0], [1, 2, 1], [0, 2, 0]],
-        [[0, 2, 0], [3, 2, 1], [0, 2, 0]],
-        [[0, 2, 0], [3, 2, 3], [0, 2, 0]],
-        [[0, 1, 0], [0, 1, 0], [0, 1, 0]],
+        [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 1, 1, 1, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]],
+        [[0, 0, 0, 0, 0], [0, 0, 2, 0, 0], [0, 1, 1, 1, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]],
+        [[0, 0, 0, 0, 0], [0, 0, 2, 0, 0], [0, 1, 1, 1, 0], [0, 0, 2, 0, 0], [0, 0, 0, 0, 0]],
+        [[0, 0, 0, 0, 0], [0, 0, 2, 0, 0], [0, 1, 2, 1, 0], [0, 0, 2, 0, 0], [0, 0, 0, 0, 0]],
+        [[0, 0, 0, 0, 0], [0, 0, 2, 0, 0], [0, 3, 2, 1, 0], [0, 0, 2, 0, 0], [0, 0, 0, 0, 0]],
+        [[0, 0, 0, 0, 0], [0, 0, 2, 0, 0], [0, 3, 2, 3, 0], [0, 0, 2, 0, 0], [0, 0, 0, 0, 0]],
+        [[0, 0, 0, 0, 0], [0, 0, 1, 0, 0], [0, 0, 1, 0, 0], [0, 0, 1, 0, 0], [0, 0, 0, 0, 0]],
     ]
     property var cells: steps[step]
     property int step: 0
@@ -21,44 +21,34 @@ Item {
         id: column
         anchors.centerIn: parent
         Grid {
+            id: grid
             anchors.horizontalCenter: parent.horizontalCenter
-            columns: 3
-            rows: 3
+            columns: 5
+            rows: 5
 
-            ExplainedRectangle {
-                value: cells[0][0]
-            }
-
-            ExplainedRectangle {
-                value: cells[0][1]
-            }
-
-            ExplainedRectangle {
-                value: cells[0][2]
-            }
-
-            ExplainedRectangle {
-                value: cells[1][0]
-            }
-
-            ExplainedRectangle {
-                value: cells[1][1]
-            }
-
-            ExplainedRectangle {
-                value: cells[1][2]
-            }
-
-            ExplainedRectangle {
-                value: cells[2][0]
-            }
-
-            ExplainedRectangle {
-                value: cells[2][1]
-            }
-
-            ExplainedRectangle {
-                value: cells[2][2]
+            Repeater {
+                model: 25
+                Rectangle {
+                    property int value: cells[parseInt(index / grid.columns)][index % grid.columns]
+                    width: height
+                    height: explainedRoot.height / 2 / grid.rows
+                    border.width: width / 20
+                    border.color: "grey"
+                    color: {
+                        switch(value) {
+                        case 0:
+                            return "black"
+                        case 1:
+                            return "white"
+                        case 2:
+                            return "blue"
+                        case 3:
+                            return "red"
+                        default:
+                            return "green"
+                        }
+                    }
+                }
             }
         }
 
@@ -69,10 +59,10 @@ Item {
 
         Text {
             anchors.horizontalCenter: parent.horizontalCenter
-            text: "Levende med 0 eller 1 naboer dør.\n" +
-                  "Levende med 2 eller 3 naboer overlever.\n" +
-                  "Levende med 4 eller flere naboer dør.\n" +
-                  "Død celle med 3 naboer gjenoppstår."
+            text: "0 eller 1 naboer = død\n" +
+                  "2 eller 3 naboer = overlevende\n" +
+                  "4 eller flere naboer = død\n" +
+                  "Død celle med 3 naboer gjenoppstår"
             font.pixelSize: explainedRoot.width * 0.03
         }
     }
