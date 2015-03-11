@@ -132,6 +132,7 @@ TransitionPresentation
         title: "Universets regler"
         delayedContent: [
             Latex {
+                scale: 0.5
                 id: latex1
                 text: "Venstreside = høyreside"
             },
@@ -141,6 +142,7 @@ TransitionPresentation
                 text: "Krumning = Energi og bevegelsesmengde"
             },
             Latex {
+                scale: 0.8
                 id: latex3
                 anchors.top: latex2.bottom
                 text: "$$ G_{\\mu \\nu} - \\Lambda g_{\\mu \\nu} = 8\\pi T_{\\mu \\nu} $$"
