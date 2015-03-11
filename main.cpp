@@ -2,6 +2,8 @@
 #include <QQmlApplicationEngine>
 #include <QDebug>
 #include <QDir>
+#include <QtQuick/QQuickView>
+#include <QFontDatabase>
 #include "latexrunner/latexrunner.h"
 #include "modules/andromeda-viewer/and_controller.h"
 #include "modules/flocking-algorithm/flock_controller.h"
@@ -14,8 +16,15 @@ int main(int argc, char *argv[])
 
     QApplication app(argc, argv);
 
-    QQmlApplicationEngine engine;
-    engine.load(QUrl(QStringLiteral("qml/main.qml")));
+    QQuickView view;
+
+    QFontDatabase::addApplicationFont("fonts/SourceSansPro-Regular.ttf");
+    app.setFont(QFont("Source Sans Pro"));
+
+    view.setResizeMode(QQuickView::SizeRootObjectToView);
+    view.setSource(QUrl("presentation/MyPresentation.qml"));
+
+    view.showFullScreen();
 
     return app.exec();
 }
