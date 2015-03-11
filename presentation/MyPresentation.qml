@@ -204,7 +204,6 @@ TransitionPresentation
                     nicolaasVideo.play();
                 }
             }
-
         }
     }
 
