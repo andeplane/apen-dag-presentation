@@ -48,7 +48,6 @@ Item {
     Flocking {
         id: flockingController
         anchors.fill: parent
-
         running: true
 
         function mouseMoved(mouse) {
@@ -65,7 +64,7 @@ Item {
             id: timer
             property real lastTime: Date.now()
             property real lastSampleTime: Date.now()
-            running: true
+            running: flockingController.running
             repeat: true
             interval: 1
             onTriggered: {

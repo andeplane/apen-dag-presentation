@@ -60,9 +60,9 @@ Controller::Controller()
       m_previousStepCompleted(true),
       m_simulatorOutputDirty(false),
       m_lastStepWasBlocked(false),
-      m_renderAndromeda3x(true),
-      m_renderAndromeda2x(true),
-      m_renderAndromeda1x(true),
+      m_renderAndromeda3x(false),
+      m_renderAndromeda2x(false),
+      m_renderAndromeda1x(false),
       m_renderSky(true)
 {
     m_simulator.moveToThread(&m_simulatorWorker);
