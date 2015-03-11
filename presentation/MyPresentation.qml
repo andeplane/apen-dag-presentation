@@ -396,6 +396,7 @@ TransitionPresentation
     }
 
     Slide {
+        centeredText: "Takk for oss!"
     }
 
 }
