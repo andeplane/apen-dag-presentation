@@ -105,7 +105,7 @@ TransitionPresentation
     }
 
     Slide {
-        centeredText: "Game of Life"
+        centeredText: "Conway's Game of Life"
     }
 
     Slide {
