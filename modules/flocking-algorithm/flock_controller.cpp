@@ -107,6 +107,9 @@ void Controller::step()
 
 void Controller::updateData() {
     // Copy all positions from simulator and scale them
+    m_visualData.mouseData.positions = { m_simulator.mousePosition };
+    m_visualData.mouseData.scale = 0.2;
+    m_visualData.billboardsData.scale = 0.03;
     m_visualData.billboardsData.positions = m_simulator.pos;
     m_visualData.billboardsData.rotation.resize(m_simulator.pos.size());
     for(unsigned int i=0; i<m_simulator.vel.size(); i++) {

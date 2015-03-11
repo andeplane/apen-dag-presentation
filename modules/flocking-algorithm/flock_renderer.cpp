@@ -24,8 +24,10 @@ void Renderer::synchronize(QQuickFramebufferObject* item)
         controller->m_simulatorOutputMutex.lock();
         // Read output
         m_data.billboardsData = controller->m_visualData.billboardsData;
+        m_data.mouseData = controller->m_visualData.mouseData;
 
-        m_billboards.update(m_data.billboardsData);
+        m_billboards->update(m_data.billboardsData);
+        m_scaryBird->update(m_data.mouseData);
 
         controller->setSimulatorOutputDirty(false);
         controller->m_simulatorOutputMutex.unlock();
@@ -43,7 +45,8 @@ void Renderer::render()
 
     glDisable(GL_DEPTH_TEST);
     // Render data
-    m_billboards.render();
+    m_billboards->render();
+    m_scaryBird->render();
 }
 
 
@@ -53,7 +56,8 @@ Renderer::Renderer() :
     m_renderCount(0),
     m_dirtyCount(0)
 {
-
+    m_billboards = new Billboards(":/modules/flocking-algorithm/bird.png");
+    m_scaryBird = new Billboards(":/modules/flocking-algorithm/scarybird.jpg");
 }
 
 Renderer::~Renderer()

@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>modules/flocking-algorithm/bird.png</file>
+        <file>modules/flocking-algorithm/scarybird.jpg</file>
         <file>figures/glider.gif</file>
         <file>figures/brain.png</file>
         <file>figures/neuron.jpg</file>
