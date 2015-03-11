@@ -51,12 +51,12 @@ TransitionPresentation
     Slide {
         id: andromedaSlide
 
-//        AndromedaViewer {
-//            id: andromeda
-//            running: currentSlide === andromedaSlide
-//            width: 1080
-//            height: 1080
-//        }
+        AndromedaViewer {
+            id: andromeda
+            running: currentSlide === andromedaSlide
+            width: 1080
+            height: 1080
+        }
     }
 
     Slide {
