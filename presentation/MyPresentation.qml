@@ -130,23 +130,35 @@ TransitionPresentation
 
     Slide {
         title: "Universets regler"
+
+        Latex {
+            id: latex1
+            width: parent.width * 0.5
+            text: "Venstreside = høyreside"
+            anchors.margins: parent.height * 0.1
+            anchors.top: parent.top
+            anchors.centerIn: undefined
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+        Latex {
+            id: latex2
+            anchors.top: latex1.bottom
+            text: "Krumning = Energi og bevegelsesmengde"
+            anchors.margins: parent.height * 0.1
+            anchors.centerIn: undefined
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+        Latex {
+            id: latex3
+            anchors.top: latex2.bottom
+            text: "$$ G_{\\mu \\nu} - \\Lambda g_{\\mu \\nu} = 8\\pi T_{\\mu \\nu} $$"
+            anchors.margins: parent.height * 0.1
+            anchors.centerIn: undefined
+            width: parent.width * 0.5
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
         delayedContent: [
-            Latex {
-                scale: 0.5
-                id: latex1
-                text: "Venstreside = høyreside"
-            },
-            Latex {
-                id: latex2
-                anchors.top: latex1.bottom
-                text: "Krumning = Energi og bevegelsesmengde"
-            },
-            Latex {
-                scale: 0.8
-                id: latex3
-                anchors.top: latex2.bottom
-                text: "$$ G_{\\mu \\nu} - \\Lambda g_{\\mu \\nu} = 8\\pi T_{\\mu \\nu} $$"
-            }
+            latex1, latex2, latex3
         ]
     }
 
