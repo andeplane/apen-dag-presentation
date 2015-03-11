@@ -307,6 +307,9 @@ TransitionPresentation
 
     Slide {
         title: "Hva vi vet på ulike skalaer"
+        DefaultImage {
+            source: "../figures/scales.png"
+        }
     }
 
     Slide {
