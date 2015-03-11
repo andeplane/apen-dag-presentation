@@ -52,9 +52,8 @@ TransitionPresentation
         id: andromedaSlide
 
         AndromedaViewer {
-            x: 100
-            y: 0
             id: andromeda
+            anchors.horizontalCenter: parent.horizontalCenter
             running: currentSlide === andromedaSlide
             width: 1080
         }
@@ -107,6 +106,12 @@ TransitionPresentation
 
     Slide {
         centeredText: "Game of Life"
+    }
+
+    Slide {
+        GameOfLifeExplained {
+            anchors.fill: parent
+        }
     }
 
     Slide {
@@ -163,13 +168,6 @@ TransitionPresentation
     }
 
     Slide {
-        bullets: [
-            "Ingen hjerneceller er like",
-            "Det er veldig mange av dem"
-        ]
-    }
-
-    Slide {
         centeredText: "10¹¹ nerveceller\n10¹⁴ koblinger"
     }
 
@@ -178,7 +176,24 @@ TransitionPresentation
     }
 
     Slide {
-        centeredText: "Regnekraft dagens PC: 10¹⁰ per sekund"
+        centeredText: "Neuronify"
+    }
+
+    Slide {
+        DefaultImage {
+            source: "../figures/neuron-diagram.png"
+        }
+    }
+
+    Slide {
+        bullets: [
+            "Ingen hjerneceller er like",
+            "Det er veldig mange av dem"
+        ]
+    }
+
+    Slide {
+        centeredText: "Regnekraft dagens PC:\n10¹⁰ per sekund"
     }
 
     Slide {
