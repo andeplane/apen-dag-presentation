@@ -46,12 +46,12 @@ TransitionPresentation
     Slide {
         id: andromedaSlide
 
-        AndromedaViewer {
-            id: andromeda
-            running: currentSlide === andromedaSlide
-            width: 1080
-            height: 1080
-        }
+//        AndromedaViewer {
+//            id: andromeda
+//            running: currentSlide === andromedaSlide
+//            width: 1080
+//            height: 1080
+//        }
     }
 
     Slide {
@@ -111,7 +111,22 @@ TransitionPresentation
     }
 
     Slide {
+        bullets: [
+            "Ingen hjerneceller er like",
+            "Det er veldig mange av dem"
+        ]
+    }
 
+    Slide {
+        centeredText: "10¹¹ nerveceller\n10¹⁴ koblinger"
+    }
+
+    Slide {
+        centeredText: "100 000 000 000 000 koblinger"
+    }
+
+    Slide {
+        centeredText: "Regnekraft dagens PC: 10¹⁰ per sekund"
     }
 
     Slide {
