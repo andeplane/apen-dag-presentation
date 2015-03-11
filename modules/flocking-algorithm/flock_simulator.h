@@ -19,13 +19,13 @@ public:
     std::vector<QVector2D> acc;
     QVector2D averageVelocity;
     bool periodicX = true;
-    bool periodicY = true;
+    bool periodicY = false;
     float scale = 1.0;
     float boundaryForceMagnitude = 2.0;
-    float separationDistance = 0.05;
-    float cohesionDistance = 0.3;
-    float alignmentDistance = 0.3;
-    float mouseDistance = 0.25;
+    float separationDistance = 0.15;
+    float cohesionDistance = 0.9;
+    float alignmentDistance = 0.5;
+    float mouseDistance = 0.3;
     float obstacleDistance = 0.2;
     float obstacleForceMagnitude = 0.25;
     float mouseForceMagnitude = 0.5;
