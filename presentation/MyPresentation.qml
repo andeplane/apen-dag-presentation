@@ -128,6 +128,25 @@ TransitionPresentation
     }
 
     Slide {
+        id: nicolaasSlide
+        Video {
+            id: nicolaasVideo
+            anchors.fill: parent
+            source: "../videos/mmBody.mp4"
+            autoLoad:  true
+            property bool running: nicolaasSlide === presentation.currentSlide
+            onRunningChanged: {
+                if(running) {
+                    nicolaasVideo.play()
+                } else {
+                    nicolaasVideo.pause()
+                }
+            }
+
+        }
+    }
+
+    Slide {
         centeredText: "Conway's Game of Life"
     }
 
