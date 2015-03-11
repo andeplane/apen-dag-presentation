@@ -182,12 +182,20 @@ TransitionPresentation
             anchors.fill: parent
             source: "../videos/mmBody.mp4"
             autoLoad:  true
+
             property bool running: nicolaasSlide === presentation.currentSlide
             onRunningChanged: {
                 if(running) {
                     nicolaasVideo.play()
                 } else {
                     nicolaasVideo.pause()
+                }
+            }
+
+            onStatusChanged: {
+                if(nicolaasVideo.status === MediaPlayer.EndOfMedia)
+                {
+                    nicolaasVideo.play();
                 }
             }
 
@@ -286,9 +294,9 @@ TransitionPresentation
         }
     }
 
-//    Slide {
-//        centeredText: "Regnekraft dagens PC:\n10¹⁰ per sekund"
-//    }
+    //    Slide {
+    //        centeredText: "Regnekraft dagens PC:\n10¹⁰ per sekund"
+    //    }
 
     Slide {
         id: atomifySlide
@@ -360,7 +368,7 @@ TransitionPresentation
                 height: parent.height
                 width: parent.width / 3
                 Image {
-//                    height: parent.height
+                    //                    height: parent.height
                     width: parent.width * 0.8
                     source: "../figures/article1.png"
                     fillMode: Image.PreserveAspectFit
@@ -370,7 +378,7 @@ TransitionPresentation
                 Image {
                     x: parent.width * 0.1
                     y: parent.height * 0.3
-//                    height: parent.height
+                    //                    height: parent.height
                     width: parent.width * 0.8
                     source: "../figures/article2.png"
                     fillMode: Image.PreserveAspectFit
@@ -380,7 +388,7 @@ TransitionPresentation
                 Image {
                     x: parent.width * 0.2
                     y: parent.height * 0.6
-//                    height: parent.height
+                    //                    height: parent.height
                     width: parent.width * 0.8
                     source: "../figures/article3.png"
                     fillMode: Image.PreserveAspectFit
