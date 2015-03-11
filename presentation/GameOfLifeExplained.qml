@@ -41,7 +41,7 @@ Item {
                         case 1:
                             return "white"
                         case 2:
-                            return "blue"
+                            return "cyan"
                         case 3:
                             return "red"
                         default:

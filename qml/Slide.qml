@@ -67,7 +67,7 @@ Item {
 
     property color slideTextColor: parent.textColor !== undefined ? parent.textColor : "black"
     property string contentFontFamily: parent.fontFamily !== undefined ? parent.fontFamily : "Source Sans Pro"
-    property string titleFontFamily: parent.fontFamily !== undefined ? parent.fontFamily : "cmr10"
+    property string titleFontFamily: parent.fontFamily !== undefined ? parent.fontFamily : "Source Sans Pro"
     property int _pointCount: delayedContent.length + bullets.length
 
     function _advance() {
@@ -144,7 +144,7 @@ Item {
         text: title;
         width: 200
         scale: 0.8  * parent.width / width
-        font.capitalization: Font.SmallCaps
+//        font.capitalization: Font.SmallCaps
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
         anchors.topMargin: parent._fontSize * 1.0

@@ -180,14 +180,42 @@ TransitionPresentation
 
     Slide {
         DefaultImage {
+            id: brainImage
             source: "../figures/brain.png"
+            Behavior on scale {
+                NumberAnimation {
+                    duration: 4000
+                    easing.type: Easing.InOutSine
+                }
+            }
+        }
+        DefaultImage {
+            id: neuronImage
+            source: "../figures/neuron.jpg"
+            scale: 0.001
+            Behavior on scale {
+                NumberAnimation {
+                    duration: 4000
+                    easing.type: Easing.InOutSine
+                }
+            }
+        }
+        MouseArea {
+            anchors.fill: parent
+            acceptedButtons: Qt.LeftButton | Qt.RightButton
+            onClicked: {
+                if(mouse.button === Qt.LeftButton) {
+                    brainImage.scale = 1000
+                    neuronImage.scale = 1
+                } else {
+                    brainImage.scale = 1
+                    neuronImage.scale = 0.001
+                }
+            }
         }
     }
 
     Slide {
-        DefaultImage {
-            source: "../figures/neuron.jpg"
-        }
     }
 
     Slide {

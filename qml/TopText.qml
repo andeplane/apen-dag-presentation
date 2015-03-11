@@ -7,6 +7,7 @@ Text {
     anchors.top: parent.top
     font.family: firstSlide.titleFontFamily
     font.pixelSize: defaultFontSize
+    font.weight: Font.Light
     horizontalAlignment: Text.Center
 }
 
