@@ -22,5 +22,9 @@ Build and run the project from Qt Creator or create a new folder next to the roo
 in this directory
 
 
-ANDROMEDA IMAGES:
+# Andromeda images
 Download the high resolution images from here: https://dl.dropboxusercontent.com/u/9786132/andromeda.zip Unzip images into source folder (relative path from executable needs to be ../apen-dag-presentation/*.jpg)
+
+# Atomify video
+Download the Atomify video from here: https://www.dropbox.com/s/torv2xz6t0icplh/atomify.mp4?dl=1
+Store it in the videos folder.
