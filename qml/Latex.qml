@@ -20,6 +20,7 @@ Image {
         var latexText = text
         var imageFileName = latexRunner.createFormula(latexText, color, centered)
         source = imageFileName
+        console.log("Parent is " + parent)
     }
 
     LatexRunner {
