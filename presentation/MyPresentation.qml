@@ -51,16 +51,22 @@ TransitionPresentation
     Slide {
         id: andromedaSlide
 
-        AndromedaViewer {
-            id: andromeda
-            running: currentSlide === andromedaSlide
-            width: 1080
-            height: 1080
-        }
+//        AndromedaViewer {
+//            id: andromeda
+//            running: currentSlide === andromedaSlide
+//            width: 1080
+//            height: 1080
+//        }
     }
 
     Slide {
         centeredText: "Game of Life"
+    }
+
+    Slide {
+        GameOfLifeExplained {
+            anchors.fill: parent
+        }
     }
 
     Slide {
@@ -120,6 +126,14 @@ TransitionPresentation
     }
 
     Slide {
+        centeredText: "100 000 000 000 000 koblinger"
+    }
+
+    Slide {
+        centeredText: "Neuronify"
+    }
+
+    Slide {
         DefaultImage {
             source: "../figures/neuron-diagram.png"
         }
@@ -130,10 +144,6 @@ TransitionPresentation
             "Ingen hjerneceller er like",
             "Det er veldig mange av dem"
         ]
-    }
-
-    Slide {
-        centeredText: "100 000 000 000 000 koblinger"
     }
 
     Slide {
