@@ -73,6 +73,15 @@ TransitionPresentation
     }
 
     Slide {
+        id: ngc7331
+        title:  "NGC7331"
+
+        DefaultImage {
+            source: "../figures/NGC7331_hafreager_gboom.jpg"
+        }
+    }
+
+    Slide {
         id: andromedaSlide
 
 //        AndromedaViewer {
@@ -121,10 +130,24 @@ TransitionPresentation
 
     Slide {
         title: "Universets regler"
-        Latex {
-            width: parent.width*0.5
-            text: "$$ G_{\\mu \\nu} - \\Lambda g_{\\mu \\nu} = 8\\pi T_{\\mu \\nu} $$"
-        }
+        delayedContent: [
+            Latex {
+                scale: 0.5
+                id: latex1
+                text: "Venstreside = høyreside"
+            },
+            Latex {
+                id: latex2
+                anchors.top: latex1.bottom
+                text: "Krumning = Energi og bevegelsesmengde"
+            },
+            Latex {
+                scale: 0.8
+                id: latex3
+                anchors.top: latex2.bottom
+                text: "$$ G_{\\mu \\nu} - \\Lambda g_{\\mu \\nu} = 8\\pi T_{\\mu \\nu} $$"
+            }
+        ]
     }
 
     Slide {

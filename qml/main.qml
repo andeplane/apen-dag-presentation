@@ -7,7 +7,7 @@ Window {
     visible: true
     width: 1600
     height: 900
-    title: qsTr("Master Presentation")
+    title: qsTr("Forstå hjernen med programmering - åpen dag 12. mars 2015")
 
     MyPresentation {
         focus: true
