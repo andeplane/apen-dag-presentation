@@ -116,7 +116,22 @@ TransitionPresentation
     }
 
     Slide {
+        bullets: [
+            "Ingen hjerneceller er like",
+            "Det er veldig mange av dem"
+        ]
+    }
 
+    Slide {
+        centeredText: "10¹¹ nerveceller\n10¹⁴ koblinger"
+    }
+
+    Slide {
+        centeredText: "100 000 000 000 000 koblinger"
+    }
+
+    Slide {
+        centeredText: "Regnekraft dagens PC: 10¹⁰ per sekund"
     }
 
     Slide {
