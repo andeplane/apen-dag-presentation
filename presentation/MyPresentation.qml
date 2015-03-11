@@ -303,13 +303,6 @@ TransitionPresentation
     }
 
     Slide {
-        title: "Fysikere og biologer i samarbeid"
-        DefaultImage {
-            source: "../figures/cinpla.png"
-        }
-    }
-
-    Slide {
         id: nobelprisSlide
         title: "Nobelprisen 2014\nKeefe, Moser & Moser"
         Row {
@@ -392,6 +385,13 @@ TransitionPresentation
                     smooth: true
                 }
             }
+        }
+    }
+
+    Slide {
+        title: "Fysikere og biologer i samarbeid"
+        DefaultImage {
+            source: "../figures/cinpla.png"
         }
     }
 
