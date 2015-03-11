@@ -28,8 +28,14 @@ TransitionPresentation
 
     Slide {
         id: firstSlide
-        centeredText: "Nerver, hjernen og teknologi:\n" +
+        title: "Nerver, hjernen og teknologi:\n" +
                       "Forstå hjernen med programmering"
+
+        DefaultImage {
+            source: "../figures/brainTissue.png"
+            anchors.margins: 0
+        }
+
         Text {
             width: parent.width
             anchors.horizontalCenter: parent.horizontalCenter
@@ -39,7 +45,7 @@ TransitionPresentation
             lineHeight: 1.2
             horizontalAlignment: Text.Center
             wrapMode: Text.Wrap
-            text: "Anders Hafreager og Svenn-Arne Dragly\nMars 2015"
+            text: "Anders Hafreager og Svenn-Arne Dragly, Mars 2015"
         }
     }
 
