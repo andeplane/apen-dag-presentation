@@ -8,7 +8,7 @@ namespace Flocking {
 Simulator::Simulator(QObject *parent) :
     QObject(parent)
 {
-    scale = 3.0;
+    scale = 1.0;
     separationDistance *= scale;
     cohesionDistance *= scale;
     alignmentDistance *= scale;
