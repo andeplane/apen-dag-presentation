@@ -14,7 +14,7 @@ Billboards::Billboards(QString filename) :
     generateVBOs();
     uploadTexture(filename);
     GLint max;
-    m_funcs->glGetIntegerv(GL_MAX_TEXTURE_SIZE, &max);
+//    m_funcs->glGetIntegerv(GL_MAX_TEXTURE_SIZE, &max);
     qDebug() << "Max texture size: " << max;
 }
 
