@@ -12,5 +12,6 @@
         <file>qml/TransitionPresentation.qml</file>
         <file>qml/UpperLeftSlide.qml</file>
         <file>qml/UpperRightSlide.qml</file>
+        <file>qml/TopText.qml</file>
     </qresource>
 </RCC>

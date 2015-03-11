@@ -51,12 +51,58 @@ TransitionPresentation
     Slide {
         id: andromedaSlide
 
-//        AndromedaViewer {
-//            id: andromeda
-//            running: currentSlide === andromedaSlide
-//            width: 1080
-//            height: 1080
-//        }
+        AndromedaViewer {
+            x: 100
+            y: 0
+            id: andromeda
+            running: currentSlide === andromedaSlide
+            width: 1080
+        }
+
+        Text {
+            width: parent.width
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top: parent.top
+            font.family: firstSlide.titleFontFamily
+            font.pixelSize: firstSlide._titleFontSize * 0.5
+            horizontalAlignment: Text.Center
+
+            text: "Andromeda"
+        }
+    }
+
+    Slide {
+        Text {
+            width: parent.width
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top: parent.top
+            font.family: firstSlide.titleFontFamily
+            font.pixelSize: firstSlide._titleFontSize * 0.5
+            horizontalAlignment: Text.Center
+
+            text: "Hvis Andromeda hadde lyst sterkere..."
+        }
+
+        DefaultImage {
+            source: "../figures/andromedaMoon.png"
+        }
+    }
+
+    Slide {
+        Text {
+            width: parent.width
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top: parent.top
+            font.family: firstSlide.titleFontFamily
+            font.pixelSize: firstSlide._titleFontSize * 0.5
+            horizontalAlignment: Text.Center
+
+            text: "Universet er skikkelig stort..."
+        }
+
+        DefaultImage {
+            source: "../figures/universeSize.jpg"
+        }
     }
 
     Slide {
@@ -90,7 +136,9 @@ TransitionPresentation
     }
 
     Slide {
-        centeredText: "Flokker"
+        TopText {
+            text: "Fugleflokker"
+        }
     }
 
     Slide {
@@ -99,7 +147,6 @@ TransitionPresentation
             id: flocking
             running: currentSlide === flockingSlide
             width: 1080
-            height: 1080
         }
     }
 

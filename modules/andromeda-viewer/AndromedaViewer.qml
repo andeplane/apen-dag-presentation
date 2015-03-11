@@ -11,12 +11,13 @@ Item {
     property real aspectRatio: width/height
     property alias running: andromedaController.running
     width: 1080
-    height: 1080
+    height: width/1.3333
     focus: true
 
     Andromeda {
         id: andromedaController
         property real state: 0
+        property real stateDerivative: 1
         anchors.fill: parent
         running: true
 
@@ -129,21 +130,43 @@ Item {
             cameraStartX = andromedaController.cameraPos.x
             cameraStartY = andromedaController.cameraPos.y
         }
+
+        function setState(state) {
+            andromedaController.state = state
+            if(state === 0) {
+                andromedaController.setRenderAndromeda1x(false)
+                andromedaController.setRenderAndromeda2x(false)
+                andromedaController.setRenderAndromeda3x(false)
+            } else if(state === 1) {
+                andromedaController.setRenderAndromeda1x(true)
+                andromedaController.setRenderAndromeda2x(false)
+                andromedaController.setRenderAndromeda3x(false)
+            } else if(state === 2) {
+                andromedaController.setRenderAndromeda1x(true)
+                andromedaController.setRenderAndromeda2x(true)
+                andromedaController.setRenderAndromeda3x(false)
+            } else if(state === 3) {
+                andromedaController.setRenderAndromeda1x(true)
+                andromedaController.setRenderAndromeda2x(true)
+                andromedaController.setRenderAndromeda3x(true)
+            }
+        }
+
         onReleased: {
             var mousePos = scaledMousePos(mouse)
             var dx = mousePos.x - mouseStartX
             var dy = mousePos.y - mouseStartY
             var dr2 = dx*dx + dy*dy
             if(dr2 < 1e-5) {
-                if(andromedaController.state === 0) {
-                    andromedaController.state = 1;
-                    andromedaController.setRenderAndromeda1x(true)
-                } else if(andromedaController.state === 1) {
-                    andromedaController.state = 2;
-                    andromedaController.setRenderAndromeda2x(true)
-                } else if(andromedaController.state === 2) {
-                    andromedaController.state = 3;
-                    andromedaController.setRenderAndromeda3x(true)
+                var newState = andromedaController.state + andromedaController.stateDerivative
+                if(newState < 0) {
+                    setState(1);
+                    andromedaController.stateDerivative = 1;
+                } else if (newState > 3) {
+                    setState(2);
+                    andromedaController.stateDerivative = -1;
+                } else {
+                    setState(newState)
                 }
             }
         }

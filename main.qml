@@ -3,6 +3,7 @@ import QtQuick.Window 2.0
 import "presentation"
 
 Window {
+    id: mainWindow
     visible: true
     width: 1600
     height: 900

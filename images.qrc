@@ -5,5 +5,7 @@
         <file>figures/glider.gif</file>
         <file>figures/brain.png</file>
         <file>figures/neuron.jpg</file>
+        <file>figures/universeSize.jpg</file>
+        <file>figures/andromedaMoon.png</file>
     </qresource>
 </RCC>
