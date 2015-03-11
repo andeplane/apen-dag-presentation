@@ -16,6 +16,7 @@ Item {
 
     Andromeda {
         id: andromedaController
+        property real state: 0
         anchors.fill: parent
         running: true
 
@@ -46,7 +47,7 @@ Item {
             id: timer
             property real lastTime: Date.now()
             property real lastSampleTime: Date.now()
-            running: true
+            running: andromedaController.running
             repeat: true
             interval: 1
             onTriggered: {
@@ -127,6 +128,24 @@ Item {
             mouseStartY = mousePos.y
             cameraStartX = andromedaController.cameraPos.x
             cameraStartY = andromedaController.cameraPos.y
+        }
+        onReleased: {
+            var mousePos = scaledMousePos(mouse)
+            var dx = mousePos.x - mouseStartX
+            var dy = mousePos.y - mouseStartY
+            var dr2 = dx*dx + dy*dy
+            if(dr2 < 1e-5) {
+                if(andromedaController.state === 0) {
+                    andromedaController.state = 1;
+                    andromedaController.setRenderAndromeda1x(true)
+                } else if(andromedaController.state === 1) {
+                    andromedaController.state = 2;
+                    andromedaController.setRenderAndromeda2x(true)
+                } else if(andromedaController.state === 2) {
+                    andromedaController.state = 3;
+                    andromedaController.setRenderAndromeda3x(true)
+                }
+            }
         }
 
         onMouseXChanged: {
