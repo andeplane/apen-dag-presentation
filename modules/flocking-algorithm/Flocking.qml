@@ -11,8 +11,8 @@ Item {
 
     property real aspectRatio: width/height
     property alias running: flockingController.running
-    width: 1080
-    height: width
+    width: height
+    height: 1080
 
     focus: true
 
