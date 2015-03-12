@@ -48,6 +48,7 @@ Item {
     property bool isSlide: true
     property bool delayPoints: delayedContent.length > 0 ? true : false
 
+    property string credit
     property string title;
     property list<Item> delayedContent
     property variant bullets: []
@@ -137,6 +138,23 @@ Item {
             left: parent.left
             right: parent.right
         }
+    }
+
+    Text {
+        id: creditText
+        text: credit
+//        width: parent.width
+        anchors.right: slide.right
+        anchors.bottom: slide.bottom
+        anchors.rightMargin: -slide.anchors.rightMargin + 10
+        anchors.bottomMargin: -slide.anchors.bottomMargin + 10
+        font.pixelSize: _fontSize * 0.3
+        font.family: contentFontFamily
+        font.weight: Font.Light
+        color: slideTextColor
+        horizontalAlignment: Text.Right
+        wrapMode: Text.Wrap
+        opacity: 0.7
     }
 
     Text {

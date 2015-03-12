@@ -31,6 +31,8 @@ TransitionPresentation
         title: "Nerver, hjernen og teknologi:\n" +
                       "Forstå hjernen med programmering"
 
+        credit: "Image: Milad H. Mobarhan"
+
         DefaultImage {
             source: "../figures/brainTissue.png"
             anchors.margins: 0
@@ -183,6 +185,7 @@ TransitionPresentation
 
     Slide {
         id: nicolaasSlide
+        credit: "Video: Nicolaas E. Groeneboom"
         Video {
             id: nicolaasVideo
             anchors.fill: parent
@@ -242,6 +245,7 @@ TransitionPresentation
     }
 
     Slide {
+        credit: "Image: Wikipedia user GerryShaw (CC BY-SA 3.0)"
         DefaultImage {
             id: brainImage
             source: "../figures/brain.png"
@@ -294,6 +298,7 @@ TransitionPresentation
     }
 
     Slide {
+        credit: "Image: Wikipedia user LadyofHats (PD)"
         DefaultImage {
             source: "../figures/neuron-diagram.png"
         }
