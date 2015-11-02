@@ -1,11 +1,12 @@
 import QtQuick 2.0
+import QtQuick.Window 2.2
 
 Rectangle {
     id: gameRoot
     property bool isCurrent: false
     property bool running: false
-    property int rowCount: 150
-    property int columnCount: 150
+    property int rowCount: 40
+    property int columnCount: 40
 
     width: 100
     height: 62
@@ -167,7 +168,7 @@ Rectangle {
         id: effect
         property real time: 0
         property int timeStep: parseInt(time)
-        property vector2d resolution: Qt.vector2d(width, height)
+        property vector2d resolution: Qt.vector2d(width * Screen.devicePixelRatio, height * Screen.devicePixelRatio)
         property vector2d mouse: Qt.vector2d(50, 50)
         property var backbuffer: effectSource
         property bool autoDraw: false

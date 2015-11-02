@@ -9,7 +9,7 @@ Image {
     property bool centered: true
     property int dpi: 600
 
-    anchors.centerIn: parent
+//    anchors.centerIn: parent
     width: parent.width * 0.9
 
     height: width * sourceSize.height / sourceSize.width

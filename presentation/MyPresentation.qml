@@ -29,7 +29,7 @@ TransitionPresentation
     Slide {
         id: firstSlide
         title: "Nerver, hjernen og teknologi:\n" +
-                      "Forstå hjernen med programmering"
+               "Forstå hjernen med programmering"
 
         credit: "Image: Milad H. Mobarhan"
 
@@ -123,65 +123,17 @@ TransitionPresentation
     }
 
     Slide {
-        Text {
-            width: parent.width
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: parent.top
-            font.family: firstSlide.titleFontFamily
-            font.pixelSize: firstSlide._titleFontSize * 0.5
-            horizontalAlignment: Text.Center
-
-            text: "Universet er skikkelig stort..."
-        }
-
-        DefaultImage {
-            source: "../figures/universeSize.jpg"
-        }
-    }
-
-    Slide {
-        TopText {
-            text: "Universets regler"
-        }
-
-        Latex {
-            id: latex0
-            width: parent.width * 0.5
-            text: ""
-            anchors.margins: parent.height * 0.1
-            anchors.top: parent.top
-            anchors.centerIn: undefined
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
-
-        Latex {
-            id: latex1
-            width: parent.width * 0.5
-            text: "Venstreside = høyreside"
-            anchors.margins: parent.height * 0.1
-            anchors.top: latex0.top
-            anchors.centerIn: undefined
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
-        Latex {
-            id: latex2
-            anchors.top: latex1.bottom
-            text: "Krumning = Energi og bevegelsesmengde"
-            anchors.margins: parent.height * 0.1
-            anchors.centerIn: undefined
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
-        Latex {
-            id: latex3
-            anchors.top: latex2.bottom
-            text: "$$ G_{\\mu \\nu} - \\Lambda g_{\\mu \\nu} = 8\\pi T_{\\mu \\nu} $$"
-
-            anchors.centerIn: undefined
-            width: parent.width * 0.5
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
+        title: "Universets regler"
         delayedContent: [
-            latex0, latex1, latex2, latex3
+            DefaultImage {
+                source: "../figures/venstre1.png"
+            },
+            DefaultImage {
+                source: "../figures/venstre2.png"
+            },
+            DefaultImage {
+                source: "../figures/venstre3.png"
+            }
         ]
     }
 
@@ -260,57 +212,31 @@ TransitionPresentation
                 }
             }
         }
-        DefaultImage {
-            id: neuronImage
-            source: "../figures/neuron.jpg"
-            scale: 0.001
-            Behavior on scale {
-                NumberAnimation {
-                    duration: 4000
-                    easing.type: Easing.InOutSine
-                }
-            }
-        }
-        MouseArea {
-            anchors.fill: parent
-            acceptedButtons: Qt.LeftButton | Qt.RightButton
-            onClicked: {
-                if(mouse.button === Qt.LeftButton) {
-                    brainImage.scale = 1000
-                    neuronImage.scale = 1
-                } else {
-                    brainImage.scale = 1
-                    neuronImage.scale = 0.001
-                }
-            }
-        }
+        //        DefaultImage {
+        //            id: neuronImage
+        //            source: "../figures/neuron.jpg"
+        //            scale: 0.001
+        //            Behavior on scale {
+        //                NumberAnimation {
+        //                    duration: 4000
+        //                    easing.type: Easing.InOutSine
+        //                }
+        //            }
+        //        }
+        //        MouseArea {
+        //            anchors.fill: parent
+        //            acceptedButtons: Qt.LeftButton | Qt.RightButton
+        //            onClicked: {
+        //                if(mouse.button === Qt.LeftButton) {
+        //                    brainImage.scale = 1000
+        //                    neuronImage.scale = 1
+        //                } else {
+        //                    brainImage.scale = 1
+        //                    neuronImage.scale = 0.001
+        //                }
+        //            }
+        //        }
     }
-
-    Slide {
-        centeredText: "10¹¹ nerveceller\n10¹⁴ koblinger"
-    }
-
-    Slide {
-        centeredText: "100 000 000 000 000 koblinger"
-    }
-
-    Slide {
-        title: "Neuronify"
-        DefaultImage {
-            source: "../figures/neuronify.png"
-        }
-    }
-
-    Slide {
-        credit: "Image: Wikipedia user LadyofHats (PD)"
-        DefaultImage {
-            source: "../figures/neuron-diagram.png"
-        }
-    }
-
-    //    Slide {
-    //        centeredText: "Regnekraft dagens PC:\n10¹⁰ per sekund"
-    //    }
 
     Slide {
         id: atomifySlide
