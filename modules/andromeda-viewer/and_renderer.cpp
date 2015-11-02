@@ -51,7 +51,7 @@ void Renderer::render()
     m_renderCount++;
     glDepthMask(true);
 
-    glClearColor(1.0, 1.0, 1.0, 1.0);
+    glClearColor(247.0/255, 242.0/255, 211.0/255, 1.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     glDisable(GL_DEPTH_TEST);

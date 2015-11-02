@@ -17,14 +17,18 @@ TransitionPresentation
     width: 1280
     height: 720
     textColor: "black"
-
-    RadialGradient {
+    Rectangle {
         anchors.fill: parent
-        gradient: Gradient {
-            GradientStop { position: 0.0; color: "#FFFFFF" }
-            GradientStop { position: 1.0; color: "#f7f2d3" }
-        }
+        color: "#f7f2d3"
     }
+
+//    RadialGradient {
+//        anchors.fill: parent
+//        gradient: Gradient {
+//            GradientStop { position: 0.0; color: "#f7f2d3" }
+//            GradientStop { position: 1.0; color: "#f7f2d3" }
+//        }
+//    }
 
     Slide {
         id: firstSlide
@@ -58,10 +62,7 @@ TransitionPresentation
 
     Slide {
         id: ensjo
-        TopText {
-            text: "Langt å gå til Blindern"
-            font.pixelSize: defaultFontSize*0.75
-        }
+        title: "Langt å gå til Blindern"
 
         DefaultImage {
             source: "../figures/osloensjo.png"
@@ -70,10 +71,7 @@ TransitionPresentation
 
     Slide {
         id: moon1
-        TopText {
-            text: "Langt å fly til månen..."
-            font.pixelSize: defaultFontSize*0.75
-        }
+        title: "Langt å fly til månen..."
 
         DefaultImage {
             source: "../figures/earthmoon2.jpg"
@@ -85,37 +83,27 @@ TransitionPresentation
         title:  "NGC7331"
 
         DefaultImage {
+            scale: 1.3
             source: "../figures/NGC7331_hafreager_gboom.jpg"
         }
     }
 
     Slide {
         id: andromedaSlide
+        title: "Andromeda"
 
         AndromedaViewer {
-            y: 100
+            y: -50
             id: andromeda
             anchors.horizontalCenter: parent.horizontalCenter
             running: currentSlide === andromedaSlide
             height: presentation.height*0.8
         }
-
-        TopText {
-            text: "Andromeda"
-        }
     }
 
     Slide {
-        Text {
-            width: parent.width
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: parent.top
-            font.family: firstSlide.titleFontFamily
-            font.pixelSize: firstSlide._titleFontSize * 0.5
-            horizontalAlignment: Text.Center
-
-            text: "Hvis Andromeda hadde lyst sterkere..."
-        }
+        title: "Hvis Andromeda hadde lyst sterkere..."
+        titleFont.pixelSize: _fontSize*0.75
 
         DefaultImage {
             source: "../figures/andromedaMoon.png"
@@ -123,16 +111,8 @@ TransitionPresentation
     }
 
     Slide {
-        Text {
-            width: parent.width
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: parent.top
-            font.family: firstSlide.titleFontFamily
-            font.pixelSize: firstSlide._titleFontSize * 0.5
-            horizontalAlignment: Text.Center
-
-            text: "Universet er skikkelig stort..."
-        }
+        title: "Universet er skikkelig stort..."
+        titleFont.pixelSize: _fontSize*0.75
 
         DefaultImage {
             source: "../figures/universeSize.jpg"
