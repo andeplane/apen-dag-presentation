@@ -93,11 +93,10 @@ TransitionPresentation
         title: "Andromeda"
 
         AndromedaViewer {
-            y: -50
             id: andromeda
+            height: parent.height
             anchors.horizontalCenter: parent.horizontalCenter
             running: currentSlide === andromedaSlide
-            height: presentation.height*0.8
         }
     }
 
@@ -165,9 +164,24 @@ TransitionPresentation
     Slide {
         id: gameOfLifeSlide
         fullSlide: true
+        focus: true
         GameOfGLSL {
+            id: gameGLSL
             isCurrent: currentSlide === gameOfLifeSlide
             anchors.fill: parent
+            focus: true
+            onIsCurrentChanged: {
+                forceActiveFocus()
+            }
+        }
+        MouseArea {
+            anchors.fill: parent
+            propagateComposedEvents: true
+            onPressed: {
+                gameGLSL.forceActiveFocus()
+                gameGLSL.focus = true
+                mouse.accepted = false
+            }
         }
     }
 
@@ -189,7 +203,6 @@ TransitionPresentation
     }
 
     Slide {
-        credit: "Image: Wikipedia user GerryShaw (CC BY-SA 3.0)"
         DefaultImage {
             id: brainImage
             source: "../figures/brain.png"
@@ -200,30 +213,31 @@ TransitionPresentation
                 }
             }
         }
-        //        DefaultImage {
-        //            id: neuronImage
-        //            source: "../figures/neuron.jpg"
-        //            scale: 0.001
-        //            Behavior on scale {
-        //                NumberAnimation {
-        //                    duration: 4000
-        //                    easing.type: Easing.InOutSine
-        //                }
-        //            }
-        //        }
-        //        MouseArea {
-        //            anchors.fill: parent
-        //            acceptedButtons: Qt.LeftButton | Qt.RightButton
-        //            onClicked: {
-        //                if(mouse.button === Qt.LeftButton) {
-        //                    brainImage.scale = 1000
-        //                    neuronImage.scale = 1
-        //                } else {
-        //                    brainImage.scale = 1
-        //                    neuronImage.scale = 0.001
-        //                }
-        //            }
-        //        }
+    }
+
+    Slide {
+        id: neuroVideoSlide
+        Video {
+            property bool shouldPlay: currentSlide === neuroVideoSlide
+
+            onShouldPlayChanged: {
+                if(shouldPlay) {
+                    play()
+                } else {
+                    pause()
+                }
+            }
+
+            autoLoad: true
+            onStopped: {
+                console.log("STOPPED")
+                seek(0)
+                play()
+            }
+
+            anchors.fill: parent
+            source: "../videos/gaute1.mp4"
+        }
     }
 
     Slide {
@@ -231,106 +245,6 @@ TransitionPresentation
         title: "Atomify"
         DefaultImage {
             source: "../figures/atomify.png"
-        }
-    }
-
-    Slide {
-        title: "Hva vi vet på ulike skalaer"
-        DefaultImage {
-            source: "../figures/scales.png"
-        }
-    }
-
-    Slide {
-        id: nobelprisSlide
-        title: "Nobelprisen 2014\nKeefe, Moser & Moser"
-        Row {
-            anchors.fill: parent
-            anchors.margins: parent.width * 0.1
-            Image {
-                height: parent.height
-                width: parent.width / 2
-                source: "../figures/keefe.jpg"
-                anchors.margins: parent.width * 0.1
-                fillMode: Image.PreserveAspectFit
-                antialiasing: true
-                smooth: true
-            }
-            Image {
-                height: parent.height
-                width: parent.width / 2
-                source: "../figures/moser.jpg"
-                anchors.margins: parent.width * 0.1
-                fillMode: Image.PreserveAspectFit
-                antialiasing: true
-                smooth: true
-            }
-        }
-    }
-
-    Slide {
-        id: fyhnSlide
-        title: "Tre artikler om stedssansen"
-        Row {
-            anchors.fill: parent
-            anchors.margins: parent.width * 0.1
-            Image {
-                height: parent.height
-                width: parent.width / 3
-                source: "../figures/marianne.jpg"
-                anchors.margins: parent.width * 0.1
-                fillMode: Image.PreserveAspectFit
-                antialiasing: true
-                smooth: true
-            }
-            Image {
-                height: parent.height
-                width: parent.width / 3
-                source: "../figures/torkel.jpg"
-                anchors.margins: parent.width * 0.1
-                fillMode: Image.PreserveAspectFit
-                antialiasing: true
-                smooth: true
-            }
-            Item {
-                height: parent.height
-                width: parent.width / 3
-                Image {
-                    //                    height: parent.height
-                    width: parent.width * 0.8
-                    source: "../figures/article1.png"
-                    fillMode: Image.PreserveAspectFit
-                    antialiasing: true
-                    smooth: true
-                }
-                Image {
-                    x: parent.width * 0.1
-                    y: parent.height * 0.3
-                    //                    height: parent.height
-                    width: parent.width * 0.8
-                    source: "../figures/article2.png"
-                    fillMode: Image.PreserveAspectFit
-                    antialiasing: true
-                    smooth: true
-                }
-                Image {
-                    x: parent.width * 0.2
-                    y: parent.height * 0.6
-                    //                    height: parent.height
-                    width: parent.width * 0.8
-                    source: "../figures/article3.png"
-                    fillMode: Image.PreserveAspectFit
-                    antialiasing: true
-                    smooth: true
-                }
-            }
-        }
-    }
-
-    Slide {
-        title: "Fysikere og biologer i samarbeid"
-        DefaultImage {
-            source: "../figures/cinpla.png"
         }
     }
 

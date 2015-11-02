@@ -5,14 +5,21 @@ Rectangle {
     id: gameRoot
     property bool isCurrent: false
     property bool running: false
-    property int rowCount: 40
-    property int columnCount: 40
+    property int rowCount: 60
+    property int columnCount: 60
 
     width: 100
     height: 62
     focus: true
 
     color: "black"
+
+    onIsCurrentChanged: {
+        if(isCurrent) {
+            console.log("Force!")
+            gameRoot.forceActiveFocus()
+        }
+    }
 
     function clear() {
         stepTimer.clearTime = Date.now()
@@ -54,7 +61,7 @@ Rectangle {
         var column = columnOffset
         for(var i in pattern) {
             var character = pattern[i]
-            if(character === "*") {
+            if(character === "*" && row >= 0 && column >= 0 && row < rowCount && column < columnCount) {
                 canvas.cells[row][column] = 1
             }
 
@@ -123,35 +130,14 @@ Rectangle {
         }
     }
 
-    Column {
-        Rectangle {
-            width: 100
-            height: 100
-            color: "lightgreen"
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    gameRoot.running = !gameRoot.running
-                }
-            }
+    Keys.onPressed: {
+        console.log(event.key)
+        if(event.key === Qt.Key_R) {
+            gameRoot.running = !gameRoot.running
         }
-
-        Rectangle {
-            width: 100
-            height: 100
-            color: "lightblue"
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    clear()
-                }
-            }
+        if(event.key === Qt.Key_T) {
+           clear()
         }
-
-        GamePatterns {
-            onLoadPattern: gameRoot.loadPattern(pattern)
-        }
-
     }
 
     ShaderEffectSource {
@@ -262,7 +248,6 @@ Rectangle {
 
     ShaderEffectSource {
         sourceItem: effect
-        //        anchors.fill: parent
 
         width: effect.width
         height: effect.height

@@ -205,6 +205,7 @@ Item {
             }
             _userNum = 0;
         }
+        event.accepted = false
     }
 
     Rectangle {
