@@ -79,6 +79,7 @@ TransitionPresentation
             scale: 1.3
             source: "../figures/NGC7331_hafreager_gboom.jpg"
         }
+        credit: "Foto: Anders Hafreager"
     }
 
     Slide {
@@ -91,6 +92,7 @@ TransitionPresentation
             anchors.horizontalCenter: parent.horizontalCenter
             running: currentSlide === andromedaSlide
         }
+        credit: "Foto: Cory Poole, NASA (PD)"
     }
 
     Slide {
@@ -98,8 +100,9 @@ TransitionPresentation
         titleFont.pixelSize: _fontSize*0.75
 
         DefaultImage {
-            source: "../figures/andromedaMoon.png"
+            source: "../figures/andromeda.png"
         }
+        credit: "Foto: Stephen Rahn (CC by-sa), NASA (PD)"
     }
 
     Slide {
@@ -207,6 +210,7 @@ TransitionPresentation
                 }
             }
         }
+        credit: "Foto: Svenn-Arne Dragly (CC by-sa), A. M. Winkler (CC by-sa)"
     }
 
     Slide {
@@ -233,6 +237,7 @@ TransitionPresentation
             anchors.fill: parent
             source: "../videos/gaute1.mp4"
         }
+        credit: "Video: Espen Hagen"
     }
 
     Slide {
