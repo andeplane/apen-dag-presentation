@@ -66,7 +66,7 @@ Item {
             property real lastSampleTime: Date.now()
             running: flockingController.running
             repeat: true
-            interval: 1
+            interval: 16
             onTriggered: {
                 if(!flockingController.previousStepCompleted) {
                     return
@@ -75,7 +75,7 @@ Item {
                 var currentTime = Date.now()
                 var dt = currentTime - lastTime
                 dt /= 1000
-                flockingController.step(dt)
+                flockingController.step()
 
                 var sampleTimeDifference = (currentTime - lastSampleTime)/1000
                 lastTime = currentTime
