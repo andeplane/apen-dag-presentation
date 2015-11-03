@@ -17,25 +17,18 @@ TransitionPresentation
     width: 1280
     height: 720
     textColor: "black"
+
     Rectangle {
         anchors.fill: parent
         color: "#f7f2d3"
     }
-
-//    RadialGradient {
-//        anchors.fill: parent
-//        gradient: Gradient {
-//            GradientStop { position: 0.0; color: "#f7f2d3" }
-//            GradientStop { position: 1.0; color: "#f7f2d3" }
-//        }
-//    }
 
     Slide {
         id: firstSlide
         title: "Nerver, hjernen og teknologi:\n" +
                "Forstå hjernen med programmering"
 
-        credit: "Image: Milad H. Mobarhan"
+        credit: "Foto: Milad H. Mobarhan"
 
         DefaultImage {
             source: "../figures/brainTissue.png"
@@ -51,7 +44,7 @@ TransitionPresentation
             lineHeight: 1.2
             horizontalAlignment: Text.Center
             wrapMode: Text.Wrap
-            text: "Anders Hafreager og Svenn-Arne Dragly, Mars 2015"
+            text: "Anders Hafreager og Svenn-Arne Dragly, November 2015"
         }
     }
 
@@ -203,9 +196,10 @@ TransitionPresentation
     }
 
     Slide {
+        title: "Hvordan simulere hele hjernen?"
         DefaultImage {
             id: brainImage
-            source: "../figures/brain.png"
+            source: "../figures/brain2.png"
             Behavior on scale {
                 NumberAnimation {
                     duration: 4000
@@ -217,6 +211,7 @@ TransitionPresentation
 
     Slide {
         id: neuroVideoSlide
+        title: "Simulering av nerveceller"
         Video {
             property bool shouldPlay: currentSlide === neuroVideoSlide
 
@@ -238,6 +233,14 @@ TransitionPresentation
             anchors.fill: parent
             source: "../videos/gaute1.mp4"
         }
+    }
+
+    Slide {
+        title: "Synapser og molekyler"
+        DefaultImage {
+            source: "../figures/synapse.jpg"
+        }
+        credit: "Foto: Miserlou (via Wikipedia)"
     }
 
     Slide {
