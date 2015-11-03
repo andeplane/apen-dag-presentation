@@ -16,7 +16,6 @@ Rectangle {
 
     onIsCurrentChanged: {
         if(isCurrent) {
-            console.log("Force!")
             gameRoot.forceActiveFocus()
         }
     }
@@ -74,11 +73,6 @@ Rectangle {
         canvas.requestPaint()
     }
 
-    Component.onCompleted: {
-        var pattern = "***"
-        loadPattern(pattern)
-    }
-
     Rectangle {
         id: rect
 
@@ -131,7 +125,6 @@ Rectangle {
     }
 
     Keys.onPressed: {
-        console.log(event.key)
         if(event.key === Qt.Key_R) {
             gameRoot.running = !gameRoot.running
         }
