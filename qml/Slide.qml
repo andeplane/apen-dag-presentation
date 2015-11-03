@@ -162,11 +162,8 @@ Item {
         text: title
         width: parent.width
 
-//        scale: 0.8  * parent.width / width
-//        font.capitalization: Font.SmallCaps
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
-        anchors.topMargin: parent._fontSize * 1.0
         font.pixelSize: parent._titleFontSize
         font.family: titleFontFamily
         font.weight: Font.Light
