@@ -235,7 +235,7 @@ TransitionPresentation
             }
 
             anchors.fill: parent
-            source: "../videos/gaute1.mp4"
+            source: "../videos/neurons.mp4"
         }
         credit: "Video: Espen Hagen"
     }
